@@ -1,0 +1,235 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "products": "Products",
+        "blog": "Blog",
+        "contact": "Contact Us"
+    },
+    "header": {
+        "get_quote": "Get a Quote",
+        "search_placeholder": "Search for products..."
+    },
+    "hero": {
+        "title": "Your Premier Scientific Partner for Lab Setup in Egypt",
+        "subtitle": "Providing integrated solutions from precision instruments, chemicals, to lab supplies with global standards.",
+        "badge": "Serving Medical & Pharma Sectors Since 1995",
+        "cta_primary": "Explore Services",
+        "cta_secondary": "Contact Us"
+    },
+    "clients_section": {
+        "title": "Success Partners",
+        "subtitle": "Proudly serving over 500 leading institutions in Egypt."
+    },
+    "final_cta": {
+        "title": "Ready to Setup or Upgrade Your Lab?",
+        "subtitle": "Join Al Eman's list of successful partners.",
+        "btn": "Request Free Consultation"
+    },
+    "footer": {
+        "description": "Al Eman Medical & Scientific Services.. Three decades of excellence in supplying integrated laboratory solutions and establishing labs with international standards.",
+        "quick_links": "Quick Links",
+        "specializations": "Specializations",
+        "contact_info": "Contact Info",
+        "items": {
+            "about": "About Us",
+            "services": "Our Services",
+            "blog": "Scientific Blog",
+            "contact": "Contact Us"
+        },
+        "specs": {
+            "chemicals": "Fine Chemicals & Reagents",
+            "strains": "Reference Strains (ATCC)",
+            "equipment": "Lab Equipment & Instruments",
+            "setup": "Quality & Food Lab Setup"
+        },
+        "contact": {
+            "hq_label": "Headquarters",
+            "hq_val": "Cairo, Nasr City, 6th District",
+            "phone_label": "Call Us",
+            "phone_val": "+20 100 123 4567",
+            "email_label": "Email",
+            "email_val": "sales@al-eman.com"
+        },
+        "copyright": "Copyright © {year} Al Eman Medical & Scientific Services. All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use"
+    },
+    "about": {
+        "title": "Al Eman.. A Leading Interface in the Egyptian Market",
+        "description": "Al Eman Medical & Scientific Services is a leading interface with over 30 years of experience. We specialize in providing advanced scientific and laboratory solutions.",
+        "cta": "Our Story",
+        "stats": {
+            "exp": "Years Experience",
+            "clients": "Clients & Partners",
+            "quality": "Quality & Trust"
+        },
+        "cards": {
+            "precision_title": "Precision",
+            "precision_desc": "Commited to the highest standards of scientific accuracy.",
+            "lab_title": "Lab Setup",
+            "lab_desc": "Physical and laboratory performance analysis with superior accuracy."
+        }
+    },
+    "services_section": {
+        "title": "Integrated Solutions & Services",
+        "description": "We don’t just supply; we create the ideal environment for your research success.",
+        "btn": "Read More",
+        "items": {
+            "lab_setup": {
+                "title": "Lab Setup",
+                "desc": "Turnkey solutions for factories and hospitals."
+            },
+            "microbiology": {
+                "title": "Life Sciences",
+                "desc": "Microbiology products and certified reference strains."
+            },
+            "chemicals": {
+                "title": "Chemicals & Reagents",
+                "desc": "High-purity chemicals for precise lab operations."
+            },
+            "equipment": {
+                "title": "Lab Equipment",
+                "desc": "Supply, installation, and maintenance of advanced equipment."
+            },
+            "consumables": {
+                "title": "Consumables",
+                "desc": "Glassware and plastics of the highest quality."
+            }
+        }
+    },
+    "products_section": {
+        "title": "Integrated Laboratory Solutions",
+        "description": "Explore an elite selection of globally certified products.",
+        "cta": "View Full Catalog",
+        "cta_mobile": "View All Products",
+        "categories": {
+            "all": "All",
+            "chemicals": "Chemicals",
+            "equipment": "Equipment",
+            "strains": "Strains"
+        },
+        "price_request": "Request Quote"
+    },
+    "value_proposition": {
+        "title": "Why Experts Choose Al Eman?",
+        "items": {
+            "exp_title": "30 Years Experience",
+            "exp_desc": "Three decades of leadership in lab setup.",
+            "auth_title": "Trust & Reliability",
+            "auth_desc": "Committed to supplying products matching international standards.",
+            "direct_title": "Direct Relationships",
+            "direct_desc": "Direct agents and suppliers for major global brands.",
+            "support_title": "Technical Support",
+            "support_desc": "Engineers and scientists ready to provide consultation."
+        }
+    },
+    "blog_section": {
+        "tag": "Knowledge Hub",
+        "title": "Latest News & Articles",
+        "cta": "Explore Full Blog",
+        "read_more": "Read More",
+        "posts": {
+            "post1": {
+                "title": "Safe Handling of Reference Strains",
+                "excerpt": "Comprehensive guide on global best practices.",
+                "cat": "Life Sciences"
+            },
+            "post2": {
+                "title": "Latest Tech in Lab Setup",
+                "excerpt": "Explore new WHO standards for modern labs.",
+                "cat": "Lab Setup"
+            },
+            "post3": {
+                "title": "Importance of High Purity Reagents",
+                "excerpt": "Why raw material quality is crucial.",
+                "cat": "Chemicals"
+            }
+        }
+    },
+    "about_page": {
+        "title": "About Us",
+        "subtitle": "A journey spanning over 30 years in serving the medical sector.",
+        "story_tag": "Our Story",
+        "story_title": "Leadership in Lab Setup and Scientific Solutions",
+        "story_p1": "Al Eman Medical & Scientific Services was founded with an ambitious vision to bridge the gap in the Egyptian market.",
+        "story_p2": "Over three decades, we have built strong relationships with major manufacturers globally.",
+        "story_p3": "Today, we are proud to be the strategic partner for many universities and research centers.",
+        "mission_title": "Our Mission",
+        "mission_desc": "Empowering researchers and scientists with globally reliable tools and materials.",
+        "vision_title": "Our Vision",
+        "vision_desc": "To be the primary reference and most trusted platform in the Middle East for lab solutions."
+    },
+    "contact_page": {
+        "title": "Contact Us",
+        "subtitle": "We are here to support your scientific journey and answer your inquiries.",
+        "breadcrumb": "Contact Us",
+        "cards": {
+            "call_title": "Call Us Directly",
+            "call_sub": "Available all week",
+            "email_title": "Email Us",
+            "email_sub": "We reply within 24 hours",
+            "visit_title": "Visit Us",
+            "visit_sub": "Nasr City, Cairo"
+        },
+        "form": {
+            "title": "Send us a Message",
+            "subtitle": "Fill out the form below and our team will contact you soon.",
+            "name": "Full Name",
+            "name_placeholder": "Your name here",
+            "company": "Company / Lab Name",
+            "company_placeholder": "Entity name",
+            "email": "Email Address",
+            "phone": "Phone Number",
+            "type": "Inquiry Type",
+            "type_options": {
+                "quote": "Request Quote",
+                "consult": "Lab Setup Consultation",
+                "support": "Technical Support",
+                "general": "General Inquiry"
+            },
+            "message": "Message",
+            "message_placeholder": "Write your inquiry details here...",
+            "submit": "Send Message",
+            "submitting": "Sending...",
+            "success_title": "Message Sent Effectively!",
+            "success_desc": "Thanks for contacting us. We will reply very soon.",
+            "send_another": "Send another message"
+        },
+        "working_hours": {
+            "title": "Working Hours",
+            "subtitle": "We are available to serve you reaching all week",
+            "days": "Saturday - Thursday",
+            "friday": "Friday",
+            "closed": "Closed"
+        },
+        "whatsapp_cta": "Contact Us"
+    },
+    "blog_page": {
+        "title": "Scientific Blog",
+        "subtitle": "Latest articles, scientific news, and expert tips in the field of laboratories",
+        "breadcrumb": "Blog",
+        "search_title": "Search in Blog",
+        "search_placeholder": "Search keyword...",
+        "categories_title": "Categories",
+        "tags_title": "Popular Tags",
+        "newsletter": {
+            "title": "Newsletter",
+            "subtitle": "Subscribe to receive the latest scientific articles and exclusive offers.",
+            "placeholder": "Your email here",
+            "btn": "Subscribe for Free"
+        },
+        "read_more": "Read Article",
+        "all": "All",
+        "single_post": {
+            "author": "Author",
+            "published_at": "Published On",
+            "share": "Share Post",
+            "related": "Suggested Reads",
+            "view_all": "View All",
+            "cta_title": "Need Expert Consultation?",
+            "cta_subtitle": "Our experts are ready to assist you in setting up or upgrading your lab."
+        }
+    }
+}

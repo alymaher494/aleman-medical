@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  /* Al Eman Brand Colors */
+  --color-primary: #1A53A1;
+  --color-primary-light: #3A91D4;
+  --color-primary-dark: #1A53A1;
+  /* Same as primary for consistency with logo text */
+  --color-secondary: #3A91D4;
+  --color-accent: #66B3FF;
+  --color-brand-bg: #F0F7FF;
+  --color-bg-light: #FBFBFF;
+  --background-image-gradient-primary: linear-gradient(135deg, #3A91D4 0%, #1A53A1 100%);
+  --font-cairo: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@utility glass-effect {
+  @apply backdrop-blur-md bg-white/80;
+}
+
+@utility animate-shine {
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  @apply w-3 h-3 bg-gray-300 opacity-50 transition-all duration-300;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  @apply w-8 bg-primary rounded-full opacity-100;
+}
+
+.hero-swiper .swiper-slide {
+  @apply transition-transform duration-500 ease-out;
+}
