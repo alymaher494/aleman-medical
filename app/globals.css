@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Al Eman Brand Colors */
-  --color-primary: #1A53A1;
-  --color-primary-light: #3A91D4;
-  --color-primary-dark: #1A53A1;
-  /* Same as primary for consistency with logo text */
-  --color-secondary: #3A91D4;
-  --color-accent: #66B3FF;
+  /* Al Eman Brand Colors - Updated from Brand Guideline */
+  --color-primary: #003D7A;
+  --color-primary-light: #1982D8;
+  --color-primary-dark: #002D5A;
+  /* Darker shade for contrast */
+  --color-secondary: #0079AF;
+  --color-accent: #00CFFF;
   --color-brand-bg: #F0F7FF;
   --color-bg-light: #FBFBFF;
-  --background-image-gradient-primary: linear-gradient(135deg, #3A91D4 0%, #1A53A1 100%);
+  --background-image-gradient-primary: linear-gradient(180deg, #1982D8 50%, #003D7A 100%);
+  --font-exo: var(--font-exo), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
   --font-cairo: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
 }
 

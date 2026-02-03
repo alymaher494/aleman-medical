@@ -122,9 +122,127 @@ export default function AboutClient({ dict, lang }: { dict: any, lang: string })
                 </div>
             </section>
 
+            {/* Experience Section */}
+            <section className="py-24 bg-white">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                        <div className="md:w-1/2">
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-4xl font-black text-gray-900 mb-8 font-cairo"
+                            >
+                                {dict?.about_page?.experience_title}
+                            </motion.h2>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="text-lg text-gray-600 leading-relaxed font-medium"
+                            >
+                                {dict?.about_page?.experience_desc}
+                            </motion.p>
+                        </div>
+                        <div className="md:w-1/2">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="bg-primary/5 rounded-[50px] p-12 text-center"
+                            >
+                                <div className="text-6xl font-black text-primary mb-4 font-cairo">30+</div>
+                                <div className="text-xl font-bold text-gray-500 uppercase tracking-widest">
+                                    {lang === 'ar' ? 'عاماً من التميز' : 'Years of Excellence'}
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Values Section */}
+            <section className="py-24 bg-brand-bg/20">
+                <div className="container mx-auto px-6">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-4xl font-black text-gray-900 mb-16 text-center font-cairo"
+                    >
+                        {dict?.about_page?.values_title}
+                    </motion.h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {dict?.about_page?.values && Object.entries(dict.about_page.values).map(([key, value], idx) => (
+                            <motion.div
+                                key={key}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-sm hover:shadow-lg transition-all"
+                            >
+                                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+                                    <History size={24} />
+                                </div>
+                                <p className="text-gray-700 font-bold text-lg leading-relaxed">
+                                    {value as string}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Sectors Section */}
+            {dict?.sectors_section && (
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6">
+                        <div className="text-center max-w-3xl mx-auto mb-16">
+                            <motion.h2
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-4xl font-black text-gray-900 mb-6 font-cairo"
+                            >
+                                {dict.sectors_section.title}
+                            </motion.h2>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="text-lg text-gray-500 font-medium"
+                            >
+                                {dict.sectors_section.subtitle}
+                            </motion.p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {dict.sectors_section.items.map((item: string, idx: number) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.05 }}
+                                    className="bg-gray-50 p-6 rounded-2xl border border-gray-100 flex items-center gap-4 hover:bg-white hover:shadow-md transition-all group"
+                                >
+                                    <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform" />
+                                    <span className="text-gray-900 font-bold">{item}</span>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             <ValueProposition dict={dict?.value_proposition} lang={lang} />
             <Clients dict={dict?.clients_section} lang={lang} />
             <FinalCTA dict={dict?.final_cta} lang={lang} />
         </main>
+
     )
 }

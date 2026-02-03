@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, ShieldCheck, Truck, HeadphonesIcon } from 'lucide-react'
+import { Award, ShieldCheck, Truck, HeadphonesIcon, Factory, Layers, BookOpen } from 'lucide-react'
 
 export default function ValueProposition({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
-    const values = [
+    const defaultValues = [
         {
             title: dict?.items?.exp_title || 'خبرة 30 عاماً',
             description: dict?.items?.exp_desc || 'ثلاثة عقود من الريادة...',
@@ -26,6 +26,27 @@ export default function ValueProposition({ dict, lang = 'ar' }: { dict?: any, la
             icon: <HeadphonesIcon size={32} />,
         },
     ]
+
+    // Extend with additional items from dict if they exist
+    const additionalValues = dict?.additional_items ? [
+        {
+            title: lang === 'ar' ? 'تجهيز كامل' : 'Full Capability',
+            description: dict.additional_items.scratch,
+            icon: <Factory size={32} />
+        },
+        {
+            title: lang === 'ar' ? 'تنوع المحفظة' : 'Diverse Portfolio',
+            description: dict.additional_items.portfolio,
+            icon: <Layers size={32} />
+        },
+        {
+            title: lang === 'ar' ? 'سجل حافل' : 'Track Record',
+            description: dict.additional_items.track_record,
+            icon: <BookOpen size={32} />
+        }
+    ] : []
+
+    const values = [...defaultValues, ...additionalValues]
 
     const isRtl = lang === 'ar'
 
@@ -52,7 +73,7 @@ export default function ValueProposition({ dict, lang = 'ar' }: { dict?: any, la
                 </div>
 
                 {/* Values Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
                     {values.map((value, idx) => (
                         <motion.div
                             key={idx}
@@ -79,3 +100,4 @@ export default function ValueProposition({ dict, lang = 'ar' }: { dict?: any, la
         </section>
     )
 }
+

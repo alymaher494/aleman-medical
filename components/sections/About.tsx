@@ -103,7 +103,7 @@ export default function About({ dict, lang = 'ar' }: { dict?: any, lang?: string
                                         whileInView={{ width: '95%' }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.3 }}
-                                        className="h-full bg-[#a594ff]"
+                                        className="h-full bg-accent"
                                     />
                                 </div>
                                 <p className="text-sm text-gray-400 font-medium leading-relaxed">{dict?.cards?.lab_desc}</p>

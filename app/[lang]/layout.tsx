@@ -1,11 +1,17 @@
 import type { Metadata } from 'next'
-import { Cairo } from 'next/font/google'
+import { Cairo, Exo } from 'next/font/google'
 import '../globals.css'
 
 const cairo = Cairo({
   subsets: ['arabic'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-cairo',
+})
+
+const exo = Exo({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-exo',
 })
 
 export const metadata: Metadata = {
@@ -30,7 +36,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
-      <body className={`${cairo.variable} font-cairo bg-white text-gray-900`}>
+      <body className={`${cairo.variable} ${exo.variable} ${lang === 'ar' ? 'font-arabic' : 'font-exo'} bg-white text-gray-900`}>
         {children}
       </body>
     </html>

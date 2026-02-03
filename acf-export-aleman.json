@@ -1,0 +1,93 @@
+[
+    {
+        "key": "group_65ba1c2d3e4f5",
+        "title": "Service Fields",
+        "fields": [
+            {
+                "key": "field_65ba1c2d3e4f6",
+                "label": "Description",
+                "name": "description",
+                "type": "textarea",
+                "instructions": "Enter a short description of the service for the cards.",
+                "required": 0,
+                "show_in_graphql": 1,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_65ba1c2d3e4f7",
+                "label": "Icon",
+                "name": "icon",
+                "type": "select",
+                "instructions": "Select the icon to display for this service.",
+                "required": 1,
+                "show_in_graphql": 1,
+                "choices": {
+                    "microscope": "Microscope",
+                    "beaker": "Beaker",
+                    "flask": "Flask",
+                    "clipboard": "Clipboard",
+                    "settings": "Settings"
+                },
+                "default_value": "settings",
+                "ui": 1,
+                "ajax": 0,
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "service"
+                }
+            ]
+        ],
+        "show_in_graphql": 1,
+        "graphql_field_name": "serviceFields"
+    },
+    {
+        "key": "group_65ba1c2d3e4f8",
+        "title": "Client Fields",
+        "fields": [
+            {
+                "key": "field_65ba1c2d3e4f9",
+                "label": "Company Name",
+                "name": "companyName",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "show_in_graphql": 1,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_65ba1c2d3e4f10",
+                "label": "Logo (Optional URL)",
+                "name": "logo",
+                "type": "text",
+                "instructions": "Usually using Featured Image, but can provide direct URL here.",
+                "required": 0,
+                "show_in_graphql": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "client_partner"
+                }
+            ]
+        ],
+        "show_in_graphql": 1,
+        "graphql_field_name": "clientFields"
+    }
+]

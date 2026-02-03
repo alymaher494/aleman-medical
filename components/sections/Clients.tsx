@@ -7,11 +7,10 @@ const clients = [
     { name: 'Pharco Pharmaceuticals', logo: 'PHARCO' },
     { name: 'Nestle', logo: 'Nestle' },
     { name: 'Danone', logo: 'Danone' },
+    { name: 'General Organization for Export & Import Control', logo: 'GOEIC' },
+    { name: 'Regional Center for Food & Feed', logo: 'RCFF' },
+    { name: 'Sedico Pharmaceuticals', logo: 'Sedico' },
     { name: 'Eva Pharma', logo: 'EVA' },
-    { name: 'Juhayna', logo: 'Juhayna' },
-    { name: 'Pfizer', logo: 'Pfizer' },
-    { name: 'Sanofi', logo: 'Sanofi' },
-
 ]
 
 export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {

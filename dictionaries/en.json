@@ -12,23 +12,23 @@
         "search_placeholder": "Search for products..."
     },
     "hero": {
-        "title": "Your Premier Scientific Partner for Lab Setup in Egypt",
-        "subtitle": "Providing integrated solutions from precision instruments, chemicals, to lab supplies with global standards.",
-        "badge": "Serving Medical & Pharma Sectors Since 1995",
+        "title": "Al Eman – Your Trusted Partner for Complete Laboratory Solutions for Over 30 Years",
+        "subtitle": "From chemicals and microbiology to media, reference strains, and complete lab setups – Al Eman supports pharma, food, and research sectors across Egypt.",
+        "badge": "Trusted Partner Since 1995",
         "cta_primary": "Explore Services",
         "cta_secondary": "Contact Us"
     },
     "clients_section": {
-        "title": "Success Partners",
-        "subtitle": "Proudly serving over 500 leading institutions in Egypt."
+        "title": "Trusted By",
+        "subtitle": "Al Eman is trusted by leading organizations in the pharmaceutical, food, and regulatory sectors."
     },
     "final_cta": {
-        "title": "Ready to Setup or Upgrade Your Lab?",
-        "subtitle": "Join Al Eman's list of successful partners.",
+        "title": "Ready to build, upgrade, or equip your lab?",
+        "subtitle": "Partner with Al Eman and get it done right.",
         "btn": "Request Free Consultation"
     },
     "footer": {
-        "description": "Al Eman Medical & Scientific Services.. Three decades of excellence in supplying integrated laboratory solutions and establishing labs with international standards.",
+        "description": "Al Eman Medical & Scientific Services is a leading provider of laboratory and scientific solutions in Egypt with over 30 years of experience.",
         "quick_links": "Quick Links",
         "specializations": "Specializations",
         "contact_info": "Contact Info",
@@ -40,9 +40,9 @@
         },
         "specs": {
             "chemicals": "Fine Chemicals & Reagents",
-            "strains": "Reference Strains (ATCC)",
+            "strains": "Reference Strains",
             "equipment": "Lab Equipment & Instruments",
-            "setup": "Quality & Food Lab Setup"
+            "setup": "Complete Lab Setups"
         },
         "contact": {
             "hq_label": "Headquarters",
@@ -57,45 +57,45 @@
         "terms": "Terms of Use"
     },
     "about": {
-        "title": "Al Eman.. A Leading Interface in the Egyptian Market",
-        "description": "Al Eman Medical & Scientific Services is a leading interface with over 30 years of experience. We specialize in providing advanced scientific and laboratory solutions.",
-        "cta": "Our Story",
+        "title": "Who We Are",
+        "description": "Al Eman Medical & Scientific Services is a leading provider of laboratory and scientific solutions in Egypt, specializing in chemicals, life sciences, laboratory media, and microbial reference strains, with over 30 years of experience in the market.",
+        "cta": "Read More",
         "stats": {
-            "exp": "Years Experience",
-            "clients": "Clients & Partners",
+            "exp": "Years of Experience",
+            "clients": "Success Partners",
             "quality": "Quality & Trust"
         },
         "cards": {
-            "precision_title": "Precision",
-            "precision_desc": "Commited to the highest standards of scientific accuracy.",
-            "lab_title": "Lab Setup",
-            "lab_desc": "Physical and laboratory performance analysis with superior accuracy."
+            "precision_title": "Precision & Quality",
+            "precision_desc": "Committed to the highest standards of scientific accuracy and reliable products.",
+            "lab_title": "Complete Solutions",
+            "lab_desc": "Single trusted source for all your laboratory and scientific requirements."
         }
     },
     "services_section": {
-        "title": "Integrated Solutions & Services",
-        "description": "We don’t just supply; we create the ideal environment for your research success.",
+        "title": "What We Do",
+        "description": "We offer a wide range of medical and scientific supplies and specialize in complete laboratory setup solutions.",
         "btn": "Read More",
         "items": {
             "lab_setup": {
-                "title": "Lab Setup",
-                "desc": "Turnkey solutions for factories and hospitals."
+                "title": "Lab Setup Solutions",
+                "desc": "We don't just supply – we build labs. Complete setup for laboratories, food factories, and hospitals."
             },
             "microbiology": {
-                "title": "Life Sciences",
-                "desc": "Microbiology products and certified reference strains."
+                "title": "Microbiology & Media",
+                "desc": "Microbiology products, laboratory media, and microbial reference strains."
             },
             "chemicals": {
                 "title": "Chemicals & Reagents",
-                "desc": "High-purity chemicals for precise lab operations."
+                "desc": "Fine chemicals and reagents supporting pharma and research sectors."
             },
             "equipment": {
-                "title": "Lab Equipment",
-                "desc": "Supply, installation, and maintenance of advanced equipment."
+                "title": "Laboratory Equipment",
+                "desc": "A wide range of laboratory equipment, instruments, and technical support."
             },
             "consumables": {
-                "title": "Consumables",
-                "desc": "Glassware and plastics of the highest quality."
+                "title": "Lab Consumables",
+                "desc": "Glassware, plasticware, and high-quality laboratory consumables."
             }
         }
     },
@@ -113,16 +113,21 @@
         "price_request": "Request Quote"
     },
     "value_proposition": {
-        "title": "Why Experts Choose Al Eman?",
+        "title": "Why Al Eman?",
         "items": {
-            "exp_title": "30 Years Experience",
-            "exp_desc": "Three decades of leadership in lab setup.",
-            "auth_title": "Trust & Reliability",
-            "auth_desc": "Committed to supplying products matching international standards.",
-            "direct_title": "Direct Relationships",
-            "direct_desc": "Direct agents and suppliers for major global brands.",
-            "support_title": "Technical Support",
-            "support_desc": "Engineers and scientists ready to provide consultation."
+            "exp_title": "30+ Years Experience",
+            "exp_desc": "Over 30 years of experience in the Egyptian market.",
+            "auth_title": "Trusted Products",
+            "auth_desc": "Trusted and approved products with a wide and diverse portfolio.",
+            "direct_title": "Direct Dealing",
+            "direct_desc": "Direct dealing with selected suppliers for major global brands.",
+            "support_title": "Technical Team",
+            "support_desc": "Highly experienced technical team with a proven track record."
+        },
+        "additional_items": {
+            "scratch": "Full capability to equip laboratories from scratch.",
+            "portfolio": "Wide and diverse product portfolio.",
+            "track_record": "Proven track record with governmental bodies and major institutions."
         }
     },
     "blog_section": {
@@ -150,16 +155,26 @@
     },
     "about_page": {
         "title": "About Us",
-        "subtitle": "A journey spanning over 30 years in serving the medical sector.",
-        "story_tag": "Our Story",
-        "story_title": "Leadership in Lab Setup and Scientific Solutions",
-        "story_p1": "Al Eman Medical & Scientific Services was founded with an ambitious vision to bridge the gap in the Egyptian market.",
-        "story_p2": "Over three decades, we have built strong relationships with major manufacturers globally.",
-        "story_p3": "Today, we are proud to be the strategic partner for many universities and research centers.",
+        "subtitle": "Founded in 1995, Al Eman has built over 30 years of experience.",
+        "story_tag": "About Al Eman",
+        "story_title": "A leading provider of scientific and laboratory solutions",
+        "story_p1": "Al Eman Medical & Scientific Services is one of Egypt’s leading providers of scientific and laboratory solutions, serving the pharmaceutical, food, healthcare, research, and regulatory sectors.",
+        "story_p2": "Founded in 1995, Al Eman has built over 30 years of experience in supplying high-quality chemicals, microbiology products, laboratory media, reference strains, laboratory equipment, glassware, plasticware, and consumables.",
+        "story_p3": "We support our clients with reliable products, strong technical knowledge, and the ability to deliver complete laboratory solutions from a single trusted source.",
         "mission_title": "Our Mission",
-        "mission_desc": "Empowering researchers and scientists with globally reliable tools and materials.",
+        "mission_desc": "To be the trusted and leading provider of integrated scientific and laboratory solutions that support quality, accuracy, and compliance across all sectors we serve. We aim to help our clients achieve reliable results, improve their research, and meet the highest standards in their operations.",
         "vision_title": "Our Vision",
-        "vision_desc": "To be the primary reference and most trusted platform in the Middle East for lab solutions."
+        "vision_desc": "To become the first and most trusted choice in Egypt for chemicals, laboratory supplies, microbiology media, reference strains, and complete laboratory solutions, by delivering consistent quality, professional technical support, and dependable service.",
+        "experience_title": "Our Experience",
+        "experience_desc": "With over 30 years of experience, Al Eman has built strong expertise in serving food industries, healthcare institutions, quality control laboratories, and research centers. Our long presence in the market reflects reliability, continuity, and a deep understanding of our clients’ needs.",
+        "values_title": "Our Values",
+        "values": {
+            "expertise": "Strong scientific knowledge and technical experience across all products and services.",
+            "reliability": "Commitment to high-quality, approved, and trusted products.",
+            "integrity": "Transparent, honest, and ethical business practices.",
+            "partnership": "Building long-term relationships, not short-term transactions.",
+            "support": "Continuous support before and after sales to ensure our clients’ success."
+        }
     },
     "contact_page": {
         "title": "Contact Us",
@@ -231,5 +246,17 @@
             "cta_title": "Need Expert Consultation?",
             "cta_subtitle": "Our experts are ready to assist you in setting up or upgrading your lab."
         }
+    },
+    "sectors_section": {
+        "title": "Who We Serve?",
+        "subtitle": "We serve a wide range of sectors, including:",
+        "items": [
+            "Quality control laboratories",
+            "Food factories",
+            "Pharmaceutical companies",
+            "Hospitals and healthcare institutions",
+            "Research centers",
+            "Regulatory authorities"
+        ]
     }
 }
