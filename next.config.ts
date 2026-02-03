@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+// Force rebuild: 2026-02-03T19:05
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
