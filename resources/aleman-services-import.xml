@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>Al Eman Medical</title>
+	<link>https://aleman-medical.com</link>
+	<description>Service Import File</description>
+	<pubDate>Tue, 03 Feb 2026 15:15:00 +0000</pubDate>
+	<language>ar</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://aleman-medical.com</wp:base_site_url>
+	<wp:base_blog_url>https://aleman-medical.com</wp:base_blog_url>
+
+	<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[admin]]></wp:author_login><wp:author_email><![CDATA[admin@aleman-medical.com]]></wp:author_email><wp:author_display_name><![CDATA[Admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+
+	<!-- Service 01 -->
+	<item>
+		<title>منتجات الأحياء الدقيقة (Microbiology products)</title>
+		<link>https://aleman-medical.com/service/microbiology/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=101</guid>
+		<description></description>
+		<content:encoded><![CDATA[مجموعة كاملة من منتجات الأحياء الدقيقة المخبرية.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>101</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:00]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[microbiology]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[مجموعة كاملة من منتجات الأحياء الدقيقة المخبرية.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[microscope]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 02 -->
+	<item>
+		<title>المواد الكيميائية والكواشف (Chemicals and reagents)</title>
+		<link>https://aleman-medical.com/service/chemicals/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:01 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=102</guid>
+		<description></description>
+		<content:encoded><![CDATA[المواد الكيميائية الدقيقة والكواشف عالية النقاء.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>102</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:01]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:01]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[chemicals]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>1</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[المواد الكيميائية الدقيقة والكواشف عالية النقاء.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[beaker]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 03 -->
+	<item>
+		<title>الميديا المخبرية (Laboratory Media)</title>
+		<link>https://aleman-medical.com/service/media/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:02 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=103</guid>
+		<description></description>
+		<content:encoded><![CDATA[بيئات زراعية مخبرية متخصصة وموثوقة.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>103</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:02]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:02]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[media]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>2</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[بيئات زراعية مخبرية متخصصة وموثوقة.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[flask]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 04 -->
+	<item>
+		<title>السلالات المرجعية (Reference strains)</title>
+		<link>https://aleman-medical.com/service/strains/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:03 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=104</guid>
+		<description></description>
+		<content:encoded><![CDATA[سلالات مرجعية معتمدة للبحوث والتحاليل.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>104</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:03]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:03]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[strains]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>3</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[سلالات مرجعية معتمدة للبحوث والتحاليل.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[microscope]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 05 -->
+	<item>
+		<title>الأجهزة والمعدات المخبرية (Laboratory equipment)</title>
+		<link>https://aleman-medical.com/service/equipment/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:04 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=105</guid>
+		<description></description>
+		<content:encoded><![CDATA[أجهزة ومعدات مخبرية متطورة بتقنيات عالمية.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>105</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:04]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:04]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[equipment]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>4</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[أجهزة ومعدات مخبرية متطورة بتقنيات عالمية.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[settings]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 06 -->
+	<item>
+		<title>الزجاجيات والبلاستيكيات (Glassware and plasticware)</title>
+		<link>https://aleman-medical.com/service/glassware/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:05 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=106</guid>
+		<description></description>
+		<content:encoded><![CDATA[أدوات مخبرية زجاجية وبلاستيكية عالية الجودة.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>106</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:05]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:05]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[glassware]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>5</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[أدوات مخبرية زجاجية وبلاستيكية عالية الجودة.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[flask]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 07 -->
+	<item>
+		<title>المستلزمات المخبرية الاستهلاكية (Consumables)</title>
+		<link>https://aleman-medical.com/service/consumables/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:06 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=107</guid>
+		<description></description>
+		<content:encoded><![CDATA[كافة المستهلكات المخبرية لضمان سير العمل بدقة.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>107</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:06]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:06]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[consumables]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>6</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[كافة المستهلكات المخبرية لضمان سير العمل بدقة.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[clipboard]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Service 08 -->
+	<item>
+		<title>تجهيز المختبرات الكاملة (Lab setup)</title>
+		<link>https://aleman-medical.com/service/lab-setup/</link>
+		<pubDate>Tue, 03 Feb 2026 15:15:07 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aleman-medical.com/?post_type=service&#038;p=108</guid>
+		<description></description>
+		<content:encoded><![CDATA[نقدم حلول تجهيز مختبرات كاملة من الصفر.]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>108</wp:post_id>
+		<wp:post_date><![CDATA[2026-02-03 15:15:07]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-03 15:15:07]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[lab-setup]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>7</wp:menu_order>
+		<wp:post_type><![CDATA[service]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[نقدم حلول تجهيز مختبرات كاملة من الصفر.]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_description]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f6]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[settings]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key><![CDATA[_icon]]></wp:meta_key>
+			<wp:meta_value><![CDATA[field_65ba1c2d3e4f7]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+</channel>
+</rss>
