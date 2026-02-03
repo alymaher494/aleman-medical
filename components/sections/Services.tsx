@@ -11,7 +11,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.microbiology?.title || 'منتجات الأحياء الدقيقة',
             description: dict?.items?.microbiology?.desc || 'مجموعة كاملة من منتجات الأحياء الدقيقة المخبرية.',
             icon: <Microscope size={24} />,
-            image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=800',
+            image: '/service image/منتجات الأحياء الدقيقة (Microbiology products).png',
             slug: 'microbiology'
         },
         {
@@ -19,7 +19,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.chemicals?.title || 'المواد الكيميائية والكواشف',
             description: dict?.items?.chemicals?.desc || 'المواد الكيميائية الدقيقة والكواشف عالية النقاء.',
             icon: <Beaker size={24} />,
-            image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=800',
+            image: '/service image/المواد الكيميائية الدقيقة والكواشف (Fine chemicals and reagents).png',
             slug: 'chemicals'
         },
         {
@@ -27,7 +27,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.media?.title || 'الميديا المخبرية',
             description: dict?.items?.media?.desc || 'بيئات زراعية مخبرية متخصصة وموثوقة.',
             icon: <FlaskConical size={24} />,
-            image: 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=800',
+            image: '/service image/الزجاجيات والبلاستيكيات (Glassware and plasticware).png', // Assuming media uses similar imagery
             slug: 'media'
         },
         {
@@ -35,7 +35,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.strains?.title || 'السلالات المرجعية',
             description: dict?.items?.strains?.desc || 'سلالات مرجعية معتمدة للبحوث والتحاليل.',
             icon: <Microscope size={24} />,
-            image: 'https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?q=80&w=800',
+            image: '/service image/السلالات المرجعية (Reference strains.png',
             slug: 'strains'
         },
         {
@@ -43,7 +43,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.equipment?.title || 'الأجهزة والمعدات المخبرية',
             description: dict?.items?.equipment?.desc || 'أجهزة ومعدات مخبرية متطورة بتقنيات عالمية.',
             icon: <Settings2 size={24} />,
-            image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800',
+            image: '/service image/الأجهزة والمعدات المخبرية (Laboratory equipment.png',
             slug: 'lab-equipment'
         },
         {
@@ -51,7 +51,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.glassware?.title || 'الزجاجيات والبالستيكيات',
             description: dict?.items?.glassware?.desc || 'أدوات مخبرية زجاجية وبلاستيكية عالية الجودة.',
             icon: <FlaskConical size={24} />,
-            image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800',
+            image: '/service image/الزجاجيات والبلاستيكيات (Glassware and plasticware (2).png',
             slug: 'glassware'
         },
         {
@@ -59,7 +59,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.consumables?.title || 'المستلزمات المخبرية الاستهلاكية',
             description: dict?.items?.consumables?.desc || 'كافة المستهلكات المخبرية لضمان سير العمل بدقة.',
             icon: <ClipboardList size={24} />,
-            image: 'https://images.unsplash.com/photo-1588615419957-ed6993ef9283?q=80&w=800',
+            image: '/service image/unwatermarked_Gemini_Generated_Image_v742djv742djv742.png',
             slug: 'consumables'
         },
         {
@@ -67,7 +67,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.lab_setup?.title || 'تجهيز المختبرات الكاملة',
             description: dict?.items?.lab_setup?.desc || 'نقدم حلول تجهيز مختبرات كاملة من الصفر.',
             icon: <Settings2 size={24} />,
-            image: 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=800',
+            image: '/service image/Gemini_Generated_Image_lcehk7lcehk7lceh.png',
             slug: 'lab-setup'
         },
     ]
