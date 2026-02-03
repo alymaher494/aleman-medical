@@ -1,38 +1,60 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { Calendar, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
-export default function BlogInsights({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
-    const posts = [
+export default function BlogInsights({
+    wpPosts,
+    dict,
+    lang = 'ar'
+}: {
+    wpPosts?: any[],
+    dict?: any,
+    lang?: string
+}) {
+    const isRtl = lang === 'ar'
+
+    const fallbackPosts = [
         {
-            id: 1,
+            id: '1',
             title: dict?.posts?.post1?.title || 'كيفية التعامل الآمن...',
             excerpt: dict?.posts?.post1?.excerpt || 'دليل شامل...',
             date: '15/01/2026',
             image: 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=600',
-            category: dict?.posts?.post1?.cat || 'علوم الحياة'
+            category: dict?.posts?.post1?.cat || 'علوم الحياة',
+            slug: 'safe-handling'
         },
         {
-            id: 2,
+            id: '2',
             title: dict?.posts?.post2?.title || 'أحدث التقنيات...',
             excerpt: dict?.posts?.post2?.excerpt || 'استكشف المعايير...',
             date: '10/01/2026',
             image: 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=600',
-            category: dict?.posts?.post2?.cat || 'تجهيزات مخبرية'
+            category: dict?.posts?.post2?.cat || 'تجهيزات مخبرية',
+            slug: 'latest-tech'
         },
         {
-            id: 3,
+            id: '3',
             title: dict?.posts?.post3?.title || 'أهمية الكواشف...',
             excerpt: dict?.posts?.post3?.excerpt || 'لماذا تعتبر...',
             date: '05/01/2026',
             image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=600',
-            category: dict?.posts?.post3?.cat || 'كيماويات'
+            category: dict?.posts?.post3?.cat || 'كيماويات',
+            slug: 'reagents-importance'
         }
     ]
 
-    const isRtl = lang === 'ar'
+    const displayPosts = wpPosts && wpPosts.length > 0
+        ? wpPosts.map(post => ({
+            id: post.id,
+            title: post.title,
+            excerpt: post.excerpt?.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...',
+            date: new Date(post.date).toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-US'),
+            image: post.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=600',
+            category: post.categories?.nodes?.[0]?.name || (isRtl ? 'علمي' : 'Scientific'),
+            slug: post.slug
+        }))
+        : fallbackPosts
 
     return (
         <section className="py-24 bg-gray-50/30">
@@ -58,19 +80,21 @@ export default function BlogInsights({ dict, lang = 'ar' }: { dict?: any, lang?:
                         </motion.h2>
                     </div>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 text-primary font-bold group"
-                    >
-                        {dict?.cta}
-                        <ArrowLeft size={18} className={`transition-transform ${isRtl ? 'group-hover:-translate-x-2' : 'rotate-180 group-hover:translate-x-2'}`} />
-                    </motion.button>
+                    <Link href={`/${lang}/blog`}>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="flex items-center gap-2 text-primary font-bold group"
+                        >
+                            {dict?.cta}
+                            <ArrowLeft size={18} className={`transition-transform ${isRtl ? 'group-hover:-translate-x-2' : 'rotate-180 group-hover:translate-x-2'}`} />
+                        </motion.button>
+                    </Link>
                 </div>
 
                 {/* Blog Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {posts.map((post, idx) => (
+                    {displayPosts.map((post, idx) => (
                         <motion.article
                             key={post.id}
                             initial={{ opacity: 0, y: 30 }}
@@ -79,13 +103,14 @@ export default function BlogInsights({ dict, lang = 'ar' }: { dict?: any, lang?:
                             transition={{ delay: idx * 0.1 }}
                             className="group bg-white rounded-[40px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
                         >
-                            <Link href={`/${lang}/blog`}>
+                            <Link href={`/${lang}/blog/${post.slug}`}>
                                 {/* Image */}
                                 <div className="aspect-[16/10] overflow-hidden relative">
-                                    <img
+                                    <Image
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className={`absolute top-6 ${isRtl ? 'right-6' : 'left-6'}`}>
                                         <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black text-primary uppercase tracking-widest shadow-sm">

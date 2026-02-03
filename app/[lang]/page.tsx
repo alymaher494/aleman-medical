@@ -19,16 +19,19 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
   // Fetch WordPress data in parallel
   let wpServices: any[] = []
   let wpClients: any[] = []
+  let wpPosts: any[] = []
 
   const wpLang = lang.toUpperCase() as 'AR' | 'EN'
 
   try {
-    const [services, clients] = await Promise.all([
+    const [services, clients, posts] = await Promise.all([
       fetchServices(wpLang),
-      fetchClients(wpLang)
+      fetchClients(wpLang),
+      fetchPosts(wpLang)
     ])
     wpServices = services || []
     wpClients = clients || []
+    wpPosts = posts || []
   } catch (error) {
     console.error('Error fetching WordPress data:', error)
   }
@@ -42,7 +45,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
       <FeaturedProducts dict={dict.products_section} lang={lang} />
       <Clients dict={dict.clients_section} lang={lang} wpClients={wpClients} />
       <ValueProposition dict={dict.value_proposition} lang={lang} />
-      <BlogInsights dict={dict.blog_section} lang={lang} />
+      <BlogInsights dict={dict.blog_section} lang={lang} wpPosts={wpPosts} />
       <FinalCTA dict={dict.final_cta} lang={lang} />
       <Footer dict={dict.footer} lang={lang} />
     </main>
