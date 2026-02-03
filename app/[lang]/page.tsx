@@ -10,19 +10,37 @@ import FinalCTA from '@/components/sections/FinalCTA'
 import Footer from '@/components/Footer'
 import { getDictionary } from '../../lib/get-dictionary'
 import { Locale } from '../../i18n-config'
+import { fetchServices, fetchClients, fetchPosts } from '@/lib/wordpress'
 
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params
   const dict = await getDictionary(lang)
+
+  // Fetch WordPress data in parallel
+  let wpServices: any[] = []
+  let wpClients: any[] = []
+
+  const wpLang = lang.toUpperCase() as 'AR' | 'EN'
+
+  try {
+    const [services, clients] = await Promise.all([
+      fetchServices(wpLang),
+      fetchClients(wpLang)
+    ])
+    wpServices = services || []
+    wpClients = clients || []
+  } catch (error) {
+    console.error('Error fetching WordPress data:', error)
+  }
 
   return (
     <main className="overflow-x-hidden">
       <Header lang={lang} navigation={dict.navigation} header={dict.header} />
       <Hero lang={lang} dict={dict.hero} />
       <About dict={dict.about} lang={lang} />
-      <Services dict={dict.services_section} lang={lang} />
+      <Services dict={dict.services_section} lang={lang} wpServices={wpServices} />
       <FeaturedProducts dict={dict.products_section} lang={lang} />
-      <Clients dict={dict.clients_section} lang={lang} />
+      <Clients dict={dict.clients_section} lang={lang} wpClients={wpClients} />
       <ValueProposition dict={dict.value_proposition} lang={lang} />
       <BlogInsights dict={dict.blog_section} lang={lang} />
       <FinalCTA dict={dict.final_cta} lang={lang} />

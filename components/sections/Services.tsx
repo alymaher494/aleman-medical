@@ -3,15 +3,36 @@
 import { motion } from 'framer-motion'
 import { Microscope, Beaker, FlaskConical, ClipboardList, Settings2, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
-export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
-    const services = [
+// Icon mapping for WordPress services
+const iconMap: Record<string, any> = {
+    'microscope': <Microscope size={24} />,
+    'beaker': <Beaker size={24} />,
+    'flask': <FlaskConical size={24} />,
+    'clipboard': <ClipboardList size={24} />,
+    'settings': <Settings2 size={24} />,
+}
+
+export default function Services({
+    wpServices,
+    dict,
+    lang = 'ar'
+}: {
+    wpServices?: any[],
+    dict?: any,
+    lang?: string
+}) {
+    const isRtl = lang === 'ar'
+
+    // Static services as fallback
+    const staticServices = [
         {
             id: '01',
             title: dict?.items?.microbiology?.title || 'منتجات الأحياء الدقيقة',
             description: dict?.items?.microbiology?.desc || 'مجموعة كاملة من منتجات الأحياء الدقيقة المخبرية.',
             icon: <Microscope size={24} />,
-            image: '/services/microbiology.png',
+            image: '/assets/services/microbiology.png',
             slug: 'microbiology'
         },
         {
@@ -19,7 +40,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.chemicals?.title || 'المواد الكيميائية والكواشف',
             description: dict?.items?.chemicals?.desc || 'المواد الكيميائية الدقيقة والكواشف عالية النقاء.',
             icon: <Beaker size={24} />,
-            image: '/services/chemicals.png',
+            image: '/assets/services/chemicals.png',
             slug: 'chemicals'
         },
         {
@@ -27,7 +48,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.media?.title || 'الميديا المخبرية',
             description: dict?.items?.media?.desc || 'بيئات زراعية مخبرية متخصصة وموثوقة.',
             icon: <FlaskConical size={24} />,
-            image: '/services/media.png',
+            image: '/assets/services/media.png',
             slug: 'media'
         },
         {
@@ -35,7 +56,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.strains?.title || 'السلالات المرجعية',
             description: dict?.items?.strains?.desc || 'سلالات مرجعية معتمدة للبحوث والتحاليل.',
             icon: <Microscope size={24} />,
-            image: '/services/strains.png',
+            image: '/assets/services/strains.png',
             slug: 'strains'
         },
         {
@@ -43,7 +64,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.equipment?.title || 'الأجهزة والمعدات المخبرية',
             description: dict?.items?.equipment?.desc || 'أجهزة ومعدات مخبرية متطورة بتقنيات عالمية.',
             icon: <Settings2 size={24} />,
-            image: '/services/equipment.png',
+            image: '/assets/services/equipment.png',
             slug: 'lab-equipment'
         },
         {
@@ -51,7 +72,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.glassware?.title || 'الزجاجيات والبالستيكيات',
             description: dict?.items?.glassware?.desc || 'أدوات مخبرية زجاجية وبلاستيكية عالية الجودة.',
             icon: <FlaskConical size={24} />,
-            image: '/services/glassware.png',
+            image: '/assets/services/glassware.png',
             slug: 'glassware'
         },
         {
@@ -59,7 +80,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.consumables?.title || 'المستلزمات المخبرية الاستهلاكية',
             description: dict?.items?.consumables?.desc || 'كافة المستهلكات المخبرية لضمان سير العمل بدقة.',
             icon: <ClipboardList size={24} />,
-            image: '/services/consumables.png',
+            image: '/assets/services/consumables.png',
             slug: 'consumables'
         },
         {
@@ -67,12 +88,22 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
             title: dict?.items?.lab_setup?.title || 'تجهيز المختبرات الكاملة',
             description: dict?.items?.lab_setup?.desc || 'نقدم حلول تجهيز مختبرات كاملة من الصفر.',
             icon: <Settings2 size={24} />,
-            image: '/services/lab-setup.png',
+            image: '/assets/services/lab-setup.png',
             slug: 'lab-setup'
         },
     ]
 
-    const isRtl = lang === 'ar'
+    // Use WordPress services if available, map to match structure
+    const displayServices = wpServices && wpServices.length > 0
+        ? wpServices.map((s, idx) => ({
+            id: (idx + 1).toString().padStart(2, '0'),
+            title: s.title,
+            description: s.serviceFields?.description || s.content?.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...',
+            icon: iconMap[s.serviceFields?.icon] || <Settings2 size={24} />,
+            image: s.featuredImage?.node?.sourceUrl || '/assets/services/lab-setup.png',
+            slug: s.slug
+        }))
+        : staticServices
 
     return (
         <section className="py-24 bg-gradient-to-b from-white to-brand-bg/30">
@@ -101,7 +132,7 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, idx) => (
+                    {displayServices.map((service, idx) => (
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -113,10 +144,11 @@ export default function Services({ dict, lang = 'ar' }: { dict?: any, lang?: str
                             <Link href={`/${lang}/services/${service.slug}`} className="flex flex-col h-full">
                                 {/* Image Reveal Area */}
                                 <div className="relative h-48 overflow-hidden">
-                                    <img
+                                    <Image
                                         src={service.image}
                                         alt={service.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className={`absolute top-6 ${isRtl ? 'right-6' : 'left-6'}`}>
