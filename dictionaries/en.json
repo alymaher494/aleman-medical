@@ -20,7 +20,11 @@
     },
     "clients_section": {
         "title": "Trusted By",
-        "subtitle": "Al Eman is trusted by leading organizations in the pharmaceutical, food, and regulatory sectors."
+        "subtitle": "Al Eman is trusted by leading organizations in the pharmaceutical, food, and regulatory sectors.",
+        "tag": "Our Partners",
+        "MarqueeText": "Proud of Their Trust – Our Success Partners",
+        "footer_text_1": "More than",
+        "footer_text_2": "clients and success partners..."
     },
     "final_cta": {
         "title": "Ready to build, upgrade, or equip your lab?",
