@@ -14,8 +14,9 @@ const clients = [
 ]
 
 export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
-    // Double the list for a perfectly seamless -50% marquee effect
-    // Triple the list for a perfectly seamless marquee effect (-33.33% animation)
+    const isRtl = lang === 'ar'
+
+    // Triple the list for a perfectly seamless marquee effect
     const marqueeClients = [...clients, ...clients, ...clients]
 
     return (
@@ -42,19 +43,19 @@ export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: stri
             <div className="relative w-full overflow-hidden py-10 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-40 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-40 after:bg-gradient-to-l after:from-white after:to-transparent">
                 <motion.div
                     animate={{
-                        x: [0, "-33.33%"],
+                        x: isRtl ? ["-33.3333333333%", "0%"] : ["0%", "-33.3333333333%"],
                     }}
                     transition={{
-                        duration: 50, // Slightly slower for better readability
+                        duration: 40, 
                         ease: 'linear',
                         repeat: Infinity,
                     }}
-                    className="flex w-max gap-8 md:gap-12"
+                    className="flex w-max"
                 >
                     {marqueeClients.map((client, idx) => (
                         <div
                             key={idx}
-                            className="flex flex-col items-center justify-center min-w-[260px] md:min-w-[340px]"
+                            className="flex flex-col items-center justify-center min-w-[260px] md:min-w-[340px] px-4 md:px-6 group"
                         >
                             <motion.div
                                 whileHover={{ scale: 1.03, y: -5 }}
@@ -67,7 +68,7 @@ export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: stri
                                     {client.logo}
                                 </span>
                             </motion.div>
-                            <span className="mt-5 text-[11px] font-black text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors">
+                            <span className="mt-5 text-[11px] font-black text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors text-center">
                                 {client.name}
                             </span>
                         </div>
@@ -83,3 +84,4 @@ export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: stri
         </section>
     )
 }
+

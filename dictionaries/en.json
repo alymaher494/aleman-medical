@@ -74,28 +74,40 @@
     },
     "services_section": {
         "title": "What We Do",
-        "description": "We offer a wide range of medical and scientific supplies and specialize in complete laboratory setup solutions.",
+        "description": "We offer a wide range of medical and scientific supplies and specialize in:",
         "btn": "Read More",
         "items": {
-            "lab_setup": {
-                "title": "Lab Setup Solutions",
-                "desc": "We don't just supply – we build labs. Complete setup for laboratories, food factories, and hospitals."
-            },
             "microbiology": {
-                "title": "Microbiology & Media",
-                "desc": "Microbiology products, laboratory media, and microbial reference strains."
+                "title": "Microbiology products",
+                "desc": "Complete range of microbiology products for laboratories."
             },
             "chemicals": {
-                "title": "Chemicals & Reagents",
-                "desc": "Fine chemicals and reagents supporting pharma and research sectors."
+                "title": "Fine chemicals and reagents",
+                "desc": "High-purity fine chemicals and essential lab reagents."
+            },
+            "media": {
+                "title": "Laboratory media",
+                "desc": "Certified and reliable laboratory growth media."
+            },
+            "strains": {
+                "title": "Reference strains",
+                "desc": "Certified reference strains for research and analysis."
             },
             "equipment": {
-                "title": "Laboratory Equipment",
-                "desc": "A wide range of laboratory equipment, instruments, and technical support."
+                "title": "Laboratory equipment and instruments",
+                "desc": "Advanced laboratory equipment with international standards."
+            },
+            "glassware": {
+                "title": "Glassware and plasticware",
+                "desc": "High-quality laboratory glassware and plastics."
             },
             "consumables": {
-                "title": "Lab Consumables",
-                "desc": "Glassware, plasticware, and high-quality laboratory consumables."
+                "title": "Laboratory consumables",
+                "desc": "Full range of high-quality laboratory consumables."
+            },
+            "lab_setup": {
+                "title": "Complete laboratory setup",
+                "desc": "We provide complete laboratory setup solutions from scratch."
             }
         }
     },
