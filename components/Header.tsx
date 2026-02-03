@@ -55,7 +55,7 @@ export default function Header({
 
                     <Link href={`/${lang}`} className="flex items-center">
                         <img
-                            src="/site-logo.svg"
+                            src="/logo.webp"
                             alt="Al Eman Logo"
                             className="h-14 md:h-16 w-auto object-contain"
                         />

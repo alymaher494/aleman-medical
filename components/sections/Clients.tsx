@@ -1,8 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import type { WordPressClient } from '@/lib/wordpress'
 
-const clients = [
+interface ClientItem {
+    name: string
+    logo: string
+    image?: string
+}
+
+const fallbackClients: ClientItem[] = [
     { name: 'هيئة الدواء المصرية', logo: 'EDA' },
     { name: 'Pharco Pharmaceuticals', logo: 'PHARCO' },
     { name: 'Nestle', logo: 'Nestle' },
@@ -13,11 +21,32 @@ const clients = [
     { name: 'Eva Pharma', logo: 'EVA' },
 ]
 
-export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
+export default function Clients({
+    wpClients,
+    dict,
+    lang = 'ar'
+}: {
+    wpClients?: WordPressClient[],
+    dict?: any,
+    lang?: string
+}) {
     const isRtl = lang === 'ar'
 
-    // Triple the list for a perfectly seamless marquee effect
-    const marqueeClients = [...clients, ...clients, ...clients]
+    // Use WP clients if available, otherwise fallback
+    const displayClients: ClientItem[] = wpClients && wpClients.length > 0
+        ? wpClients.map(client => ({
+            name: client.clientFields?.companyName || client.title,
+            logo: client.clientFields?.logo || client.title,
+            image: client.featuredImage?.node?.sourceUrl
+        }))
+        : fallbackClients
+
+    // Ensure minimum items for a smooth loop, then triple for seamless effect
+    let baseClients = [...displayClients]
+    while (baseClients.length < 8) {
+        baseClients = [...baseClients, ...displayClients]
+    }
+    const marqueeClients = [...baseClients, ...baseClients, ...baseClients]
 
     return (
         <section className="py-24 bg-white overflow-hidden border-y border-gray-50">
@@ -25,6 +54,7 @@ export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: stri
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
                     className="text-primary-light font-black text-xs uppercase tracking-[0.4em] mb-4 block"
                 >
                     {dict?.tag || 'سابقة أعمالنا'}
@@ -46,7 +76,7 @@ export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: stri
                         x: isRtl ? ["-33.3333333333%", "0%"] : ["0%", "-33.3333333333%"],
                     }}
                     transition={{
-                        duration: 40, 
+                        duration: 40,
                         ease: 'linear',
                         repeat: Infinity,
                     }}
@@ -64,11 +94,22 @@ export default function Clients({ dict, lang = 'ar' }: { dict?: any, lang?: stri
                                 {/* Subtle internal shine effect */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/logo:animate-shine" />
 
-                                <span className="text-2xl md:text-3xl font-black text-white/95 group-hover/logo:text-white transition-all duration-300 drop-shadow-md tracking-tight">
-                                    {client.logo}
-                                </span>
+                                {client.image ? (
+                                    <div className="relative w-full h-full p-6">
+                                        <Image
+                                            src={client.image}
+                                            alt={client.name}
+                                            fill
+                                            className="object-contain filter brightness-0 invert opacity-90 group-hover/logo:opacity-100 transition-opacity p-2"
+                                        />
+                                    </div>
+                                ) : (
+                                    <span className="text-2xl md:text-3xl font-black text-white/95 group-hover/logo:text-white transition-all duration-300 drop-shadow-md tracking-tight px-4 text-center">
+                                        {client.logo}
+                                    </span>
+                                )}
                             </motion.div>
-                            <span className="mt-5 text-[11px] font-black text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors text-center">
+                            <span className="mt-5 text-[11px] font-black text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors text-center px-4">
                                 {client.name}
                             </span>
                         </div>
