@@ -17,9 +17,9 @@ export default function Footer({ dict, lang = 'ar' }: { dict?: any, lang?: strin
                     <div className="lg:col-span-4 text-start">
                         <Link href={`/${lang}`} className="inline-block mb-8">
                             <img
-                                src="/site-logo.svg"
+                                src="/logo.webp"
                                 alt="Al Eman Logo"
-                                className="h-16 md:h-20 w-auto object-contain brightness-0 invert"
+                                className="h-20 md:h-24 w-auto object-contain brightness-0 invert"
                             />
                         </Link>
                         <p className="text-gray-400 leading-relaxed mb-8 font-medium text-sm">

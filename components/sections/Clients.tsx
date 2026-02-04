@@ -95,12 +95,12 @@ export default function Clients({
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/logo:animate-shine" />
 
                                 {client.image ? (
-                                    <div className="relative w-full h-full p-6">
+                                    <div className="relative w-full h-full p-6 bg-white/10 group-hover/logo:bg-white/20 transition-colors">
                                         <Image
                                             src={client.image}
                                             alt={client.name}
                                             fill
-                                            className="object-contain filter brightness-0 invert opacity-90 group-hover/logo:opacity-100 transition-opacity p-2"
+                                            className="object-contain p-2 transition-transform duration-500 group-hover/logo:scale-110"
                                         />
                                     </div>
                                 ) : (

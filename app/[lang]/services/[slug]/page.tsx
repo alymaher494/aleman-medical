@@ -6,7 +6,21 @@ import FinalCTA from '@/components/sections/FinalCTA'
 import PageHeader from '@/components/PageHeader'
 import ServiceClient from '@/components/pages/ServiceClient'
 import { fetchServiceBySlug } from '@/lib/wordpress'
-import { notFound } from 'next/navigation'
+
+// Helper to get local fallback image based on slug
+const getFallbackImage = (slug: string) => {
+    const images: Record<string, string> = {
+        'microbiology': '/assets/services/microbiology.png',
+        'chemicals': '/assets/services/chemicals.png',
+        'media': '/assets/services/media.png',
+        'strains': '/assets/services/strains.png',
+        'lab-equipment': '/assets/services/equipment.png',
+        'glassware': '/assets/services/glassware.png',
+        'consumables': '/assets/services/consumables.png',
+        'lab-setup': '/assets/services/lab-setup.png',
+    }
+    return images[slug] || '/assets/services/lab-setup.png'
+}
 
 export default async function ServicePage({ params }: { params: Promise<{ lang: Locale, slug: string }> }) {
     const { lang, slug } = await params
@@ -16,47 +30,39 @@ export default async function ServicePage({ params }: { params: Promise<{ lang: 
     // Fetch service from WordPress
     const wpService = await fetchServiceBySlug(slug)
 
-    if (!wpService) {
-        // Fallback to static data if not in WP yet - or return notFound() if you prefer
-        // For development, let's keep the mock object but use WP data if it exists
-        if (slug !== 'lab-setup') {
-            // return notFound() // Uncomment after importing all services to WP
-        }
-    }
-
+    // Build the service object
     const service = wpService ? {
         title: wpService.title,
-        description: wpService.serviceFields?.description || wpService.content,
-        image: wpService.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093588401-fbb07e1136c3?q=80&w=1200',
+        description: wpService.serviceFields?.description || wpService.content?.replace(/<[^>]*>?/gm, ''),
+        image: wpService.featuredImage?.node?.sourceUrl || getFallbackImage(slug),
         features: isAr ? [
-            'تصميم هندسي عالي الجودة',
-            'توريد وتركيب أجهزة التحليل',
-            'تدريب الطاقم الفني',
-            'دعم فني متخصص',
+            'تصميم هندسي عالي الجودة يتوافق مع المعايير الدولية',
+            'توريد وتركيب أحدث أجهزة التحليل والقياس',
+            'تدريب شامل للطاقم الفني على التشغيل والصيانة',
+            'دعم فني متخصص ومستمر بعد التوريد',
         ] : [
-            'High-quality engineering design',
-            'Supply and installation of instruments',
-            'Technical staff training',
-            'Specialized technical support'
+            'High-quality engineering design compliant with global standards',
+            'Supply and installation of latest analytical instruments',
+            'Comprehensive technical staff training on operation',
+            'Continuous specialized technical support after delivery'
         ],
         process: isAr ? [
-            { title: 'الاستشارة', desc: 'تحديد الاحتياجات الدقيقة للمختبر.' },
-            { title: 'التصميم', desc: 'رسم المخططات وتوزيع الأجهزة.' },
-            { title: 'التوريد', desc: 'توريد أحدث الأجهزة من وكلائنا.' },
+            { title: 'الاستشارة والمعاينة', desc: 'تحديد الاحتياجات الدقيقة بناءً على تخصص المختبر.' },
+            { title: 'التصميم الهندسي', desc: 'توزيع الأجهزة لضمان انسيابية العمل والسلامة.' },
+            { title: 'التوريد والتركيب', desc: 'توريد الأجهزة من وكلائنا العالميين وتركيبها بدقة.' },
         ] : [
-            { title: 'Consultation', desc: 'Identification of exact lab needs.' },
-            { title: 'Design', desc: 'Drafting plans and equipment distribution.' },
-            { title: 'Supply', desc: 'Supplying latest equipment from partners.' },
+            { title: 'Consultation', desc: 'Identifying exact needs based on lab specialization.' },
+            { title: 'Engineering Design', desc: 'Optimizing equipment layout for workflow and safety.' },
+            { title: 'Supply & Installation', desc: 'Delivering equipment from global partners and expert setup.' },
         ],
         relatedProducts: []
     } : {
-        title: isAr ? 'تجهيز المختبرات المتكامل' : 'Integrated Lab Setup',
-        description: isAr
-            ? 'نقدم حلولاً هندسية وتقنية متكاملة لتأسيس المختبرات الطبية والبحثية.'
-            : 'We provide integrated engineering and technical solutions for medical labs.',
-        image: 'https://images.unsplash.com/photo-1581093588401-fbb07e1136c3?q=80&w=1200',
-        features: isAr ? ['تصميم ISO', 'أثاث مخبري'] : ['ISO design', 'Lab furniture'],
-        process: isAr ? [{ title: 'معاينة', desc: 'دراسة الموقع' }] : [{ title: 'Site study', desc: 'Inspection' }],
+        // Full local fallback data if WP record doesn't exist yet
+        title: dict?.services_section?.items?.[slug.replace('-', '_')]?.title || (isAr ? 'خدمة مخبرية متخصصة' : 'Specialized Lab Service'),
+        description: dict?.services_section?.items?.[slug.replace('-', '_')]?.desc || (isAr ? 'نقدم حلولاً متكاملة لهذه الخدمة وفق أعلى المعايير.' : 'We provide integrated solutions for this service.'),
+        image: getFallbackImage(slug),
+        features: isAr ? ['جودة عالية', 'دعم فني'] : ['High Quality', 'Technical Support'],
+        process: isAr ? [{ title: 'بدء العمل', desc: 'دراسة المتطلبات' }] : [{ title: 'Start', desc: 'Requirement study' }],
         relatedProducts: []
     }
 
