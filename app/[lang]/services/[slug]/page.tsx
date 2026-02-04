@@ -32,7 +32,7 @@ export default async function ServicePage({ params }: { params: Promise<{ lang: 
 
     // Match slug to dictionary key
     const dictKey = slug.replace(/-/g, '_')
-    const dictService = dict?.services_section?.items?.[dictKey]
+    const dictService = (dict?.services_section?.items as any)?.[dictKey]
 
     // Build the service object
     const service = wpService ? {
