@@ -41,12 +41,8 @@ export default function Clients({
         }))
         : fallbackClients
 
-    // Ensure minimum items for a smooth loop, then triple for seamless effect
-    let baseClients = [...displayClients]
-    while (baseClients.length < 8) {
-        baseClients = [...baseClients, ...displayClients]
-    }
-    const marqueeClients = [...baseClients, ...baseClients, ...baseClients]
+    // Double/Triple for seamless loop
+    const marqueeItems = [...displayClients, ...displayClients, ...displayClients]
 
     return (
         <section className="py-24 bg-white overflow-hidden border-y border-gray-50">
@@ -73,43 +69,40 @@ export default function Clients({
             <div className="relative w-full overflow-hidden py-10 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-40 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-40 after:bg-gradient-to-l after:from-white after:to-transparent">
                 <motion.div
                     animate={{
-                        x: isRtl ? ["-33.3333333333%", "0%"] : ["0%", "-33.3333333333%"],
+                        x: isRtl ? ["0%", "-33.3333%"] : ["-33.3333%", "0%"],
                     }}
                     transition={{
-                        duration: 40,
+                        duration: 30, // Optimized speed
                         ease: 'linear',
                         repeat: Infinity,
                     }}
                     className="flex w-max"
                 >
-                    {marqueeClients.map((client, idx) => (
+                    {marqueeItems.map((client, idx) => (
                         <div
                             key={idx}
-                            className="flex flex-col items-center justify-center min-w-[260px] md:min-w-[340px] px-4 md:px-6 group"
+                            className="flex flex-col items-center justify-center min-w-[200px] md:min-w-[280px] px-8 group"
                         >
                             <motion.div
-                                whileHover={{ scale: 1.03, y: -5 }}
-                                className="h-32 w-full flex items-center justify-center bg-gradient-to-r from-primary to-primary-light rounded-[35px] shadow-lg shadow-primary/5 border border-white/10 transition-all duration-500 overflow-hidden relative group/logo"
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                className="h-28 w-full flex items-center justify-center bg-gray-50/50 rounded-[35px] shadow-sm border border-gray-100 transition-all duration-500 overflow-hidden relative group/logo p-6"
                             >
-                                {/* Subtle internal shine effect */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/logo:animate-shine" />
-
                                 {client.image ? (
-                                    <div className="relative w-full h-full p-6 bg-white/10 group-hover/logo:bg-white/20 transition-colors">
+                                    <div className="relative w-full h-full">
                                         <Image
                                             src={client.image}
                                             alt={client.name}
                                             fill
-                                            className="object-contain p-2 transition-transform duration-500 group-hover/logo:scale-110"
+                                            className="object-contain transition-transform duration-500 group-hover/logo:scale-110"
                                         />
                                     </div>
                                 ) : (
-                                    <span className="text-2xl md:text-3xl font-black text-white/95 group-hover/logo:text-white transition-all duration-300 drop-shadow-md tracking-tight px-4 text-center">
+                                    <span className="text-xl font-black text-primary/30 group-hover/logo:text-primary transition-all duration-300 tracking-tight text-center">
                                         {client.logo}
                                     </span>
                                 )}
                             </motion.div>
-                            <span className="mt-5 text-[11px] font-black text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors text-center px-4">
+                            <span className="mt-5 text-[10px] font-black text-primary/40 uppercase tracking-widest group-hover:text-primary transition-colors text-center px-4 line-clamp-1">
                                 {client.name}
                             </span>
                         </div>
@@ -125,4 +118,3 @@ export default function Clients({
         </section>
     )
 }
-

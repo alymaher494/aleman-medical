@@ -54,9 +54,32 @@ const GET_SERVICES_QUERY = `
     }
 `
 
+const GET_PRODUCTS_QUERY = `
+    query GetProducts($language: LanguageCodeFilterEnum) {
+        allProducts(where: { language: $language }, first: 12) {
+            nodes {
+                id
+                title
+                slug
+                featuredImage {
+                    node {
+                        sourceUrl
+                        altText
+                    }
+                }
+                productFields {
+                    price
+                    brand
+                    category
+                }
+            }
+        }
+    }
+`
+
 const GET_CLIENTS_QUERY = `
     query GetClients($language: LanguageCodeFilterEnum) {
-        allClientsPartners(where: { language: $language }, first: 20) {
+        allClientsPartners(where: { language: $language }, first: 40) {
             nodes {
                 id
                 title
@@ -205,6 +228,17 @@ export async function fetchPosts(language: 'AR' | 'EN' = 'AR') {
             ...post,
             excerpt: sanitizeHTML(post.excerpt || ''),
         }))
+    } catch (error) {
+        return []
+    }
+}
+
+export async function fetchProducts(language: 'AR' | 'EN' = 'AR') {
+    try {
+        // We try allProducts, if it fails maybe it's just 'products'
+        const data = await fetchWordPressData(GET_PRODUCTS_QUERY, { language })
+        if (!data?.allProducts?.nodes) return []
+        return data.allProducts.nodes
     } catch (error) {
         return []
     }

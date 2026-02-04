@@ -2,10 +2,11 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, ShoppingCart, Tag } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
-export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
+export default function FeaturedProducts({ dict, lang = 'ar', wpProducts = [] }: { dict?: any, lang?: string, wpProducts?: any[] }) {
     const [activeTab, setActiveTab] = useState('all')
 
     const categories = [
@@ -15,60 +16,38 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
         { id: 'strains', name: dict?.categories?.strains || 'السلالات' },
     ]
 
-    const products = [
-        {
-            id: 1,
-            title: lang === 'ar' ? 'محلول كيميائي عالي النقاء' : 'High Purity Chemical Solution',
-            category: 'chemicals',
-            image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=600',
-            price: dict?.price_request,
-            slug: 'high-purity-chemical'
-        },
-        {
-            id: 2,
-            title: lang === 'ar' ? 'جهاز طرد مركزي متطور' : 'Advanced Centrifuge',
-            category: 'equipment',
-            image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=600',
-            price: dict?.price_request,
-            slug: 'centrifuge-max'
-        },
-        {
-            id: 3,
-            title: lang === 'ar' ? 'سلالة ميكروبية معتمدة ATCC' : 'Certified ATCC Strain',
-            category: 'strains',
-            image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=600',
-            price: dict?.price_request,
-            slug: 'atcc-25922'
-        },
-        {
-            id: 4,
-            title: lang === 'ar' ? 'مستلزمات زجاجية مخبرية' : 'Lab Glassware Set',
-            category: 'equipment',
-            image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=600',
-            price: dict?.price_request,
-            slug: 'glassware-set'
-        },
-        {
-            id: 5,
-            title: lang === 'ar' ? 'كاشف تشخيصي حيوي' : 'Diagnostic Bio-Reagent',
-            category: 'chemicals',
-            image: 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=600',
-            price: dict?.price_request,
-            slug: 'bio-reagent'
-        },
-        {
-            id: 6,
-            title: lang === 'ar' ? 'حاضنة مخبرية رقمية' : 'Digital Lab Incubator',
-            category: 'equipment',
-            image: 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=600',
-            price: dict?.price_request,
-            slug: 'digital-incubator'
-        },
-    ]
+    // Use WP products if available, with fallbacks for UI consistency
+    const displayProducts = wpProducts.length > 0
+        ? wpProducts.map(p => ({
+            id: p.id,
+            title: p.title,
+            category: p.productFields?.category?.toLowerCase() || 'equipment',
+            image: p.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=600',
+            price: p.productFields?.price || dict?.price_request,
+            slug: p.slug
+        }))
+        : [
+            {
+                id: 1,
+                title: lang === 'ar' ? 'محلول كيميائي عالي النقاء' : 'High Purity Chemical Solution',
+                category: 'chemicals',
+                image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=600',
+                price: dict?.price_request,
+                slug: 'high-purity-chemical'
+            },
+            {
+                id: 2,
+                title: lang === 'ar' ? 'جهاز طرد مركزي متطور' : 'Advanced Centrifuge',
+                category: 'equipment',
+                image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=600',
+                price: dict?.price_request,
+                slug: 'centrifuge-max'
+            }
+        ]
 
     const filteredProducts = activeTab === 'all'
-        ? products
-        : products.filter(p => p.category === activeTab)
+        ? displayProducts
+        : displayProducts.filter(p => p.category === activeTab || (activeTab === 'strains' && p.category.includes('strain')))
 
     const isRtl = lang === 'ar'
 
@@ -77,13 +56,13 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
             <div className="container mx-auto px-6">
 
                 {/* Header content */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-                    <div className="max-w-2xl text-start">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-start">
+                    <div className="max-w-2xl">
                         <motion.h2
                             initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight"
+                            className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight font-cairo"
                         >
                             {dict?.title}
                         </motion.h2>
@@ -98,14 +77,16 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
                         </motion.p>
                     </div>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="hidden md:flex items-center gap-3 px-8 py-4 border-2 border-primary/10 text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-cairo"
-                    >
-                        {dict?.cta}
-                        <ArrowLeft size={18} className={isRtl ? '' : 'rotate-180'} />
-                    </motion.button>
+                    <Link href={`/${lang}/products`}>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="hidden md:flex items-center gap-3 px-8 py-4 border-2 border-primary/10 text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-cairo"
+                        >
+                            {dict?.cta}
+                            <ArrowLeft size={18} className={isRtl ? '' : 'rotate-180'} />
+                        </motion.button>
+                    </Link>
                 </div>
 
                 {/* Tab Filtering */}
@@ -130,7 +111,7 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     <AnimatePresence mode='popLayout'>
-                        {filteredProducts.map((product) => (
+                        {filteredProducts.slice(0, 6).map((product) => (
                             <motion.div
                                 key={product.id}
                                 layout
@@ -143,11 +124,12 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
                                 <Link href={`/${lang}/products/${product.slug}`} className="block h-full">
                                     {/* Image Container */}
                                     <div className="aspect-square relative overflow-hidden p-6">
-                                        <div className="w-full h-full rounded-[30px] overflow-hidden relative shadow-sm">
-                                            <img
+                                        <div className="w-full h-full rounded-[30px] overflow-hidden relative shadow-sm bg-white">
+                                            <Image
                                                 src={product.image}
                                                 alt={product.title}
-                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                                fill
+                                                className="object-cover group-hover:scale-110 transition-transform duration-700"
                                             />
                                             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </div>
@@ -155,7 +137,7 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
                                         {/* Badge */}
                                         <div className={`absolute top-10 z-10 ${isRtl ? 'right-10' : 'left-10'}`}>
                                             <div className="px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black text-primary-light uppercase tracking-widest shadow-sm">
-                                                {categories.find(c => c.id === product.category)?.name}
+                                                {categories.find(c => c.id === product.category)?.name || product.category}
                                             </div>
                                         </div>
                                     </div>
@@ -183,9 +165,11 @@ export default function FeaturedProducts({ dict, lang = 'ar' }: { dict?: any, la
 
                 {/* Mobile-only CTA */}
                 <div className="mt-12 md:hidden">
-                    <button className="w-full py-5 bg-gray-900 text-white rounded-[25px] font-bold shadow-xl shadow-gray-200">
-                        {dict?.cta_mobile || 'استعرض جميع المنتجات'}
-                    </button>
+                    <Link href={`/${lang}/products`}>
+                        <button className="w-full py-5 bg-gray-900 text-white rounded-[25px] font-bold shadow-xl shadow-gray-200">
+                            {dict?.cta_mobile || 'استعرض جميع المنتجات'}
+                        </button>
+                    </Link>
                 </div>
 
             </div>
