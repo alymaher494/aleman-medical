@@ -21,6 +21,12 @@ export default function Header({
     const pathname = usePathname()
     const isRtl = lang === 'ar'
 
+    // Check if we're on the homepage (only /ar or /en)
+    const isHomePage = pathname === `/${lang}` || pathname === `/${lang}/`
+
+    // Only apply dark header styling (white text/logo) on internal pages when not scrolled
+    const useDarkHeader = !isHomePage && !isScrolled
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20)
@@ -57,7 +63,7 @@ export default function Header({
                         <img
                             src="/logo.webp"
                             alt="Al Eman Logo"
-                            className="h-14 md:h-16 w-auto object-contain"
+                            className={`h-14 md:h-16 w-auto object-contain transition-all duration-300 ${useDarkHeader ? 'brightness-0 invert' : ''}`}
                         />
                     </Link>
 
@@ -67,7 +73,7 @@ export default function Header({
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-gray-600 hover:text-primary font-medium transition-colors text-sm"
+                                className={`font-medium transition-colors text-sm ${useDarkHeader ? 'text-white hover:text-white/80' : 'text-gray-600 hover:text-primary'}`}
                             >
                                 {link.name}
                             </Link>
@@ -76,7 +82,7 @@ export default function Header({
 
                     {/* Right Actions */}
                     <div className="flex items-center gap-4">
-                        <Link href={redirectedPathName(targetLang)} className="hidden md:flex items-center gap-2 text-gray-600 hover:text-primary font-medium text-sm transition-colors px-3 py-2 rounded-full hover:bg-gray-50">
+                        <Link href={redirectedPathName(targetLang)} className={`hidden md:flex items-center gap-2 font-medium text-sm transition-colors px-3 py-2 rounded-full ${useDarkHeader ? 'text-white hover:text-white/80 hover:bg-white/10' : 'text-gray-600 hover:text-primary hover:bg-gray-50'}`}>
                             <Globe size={16} />
                             <span>{targetLabel}</span>
                         </Link>
@@ -90,7 +96,7 @@ export default function Header({
 
                         {/* Mobile Toggle */}
                         <button
-                            className="lg:hidden p-2 text-gray-600"
+                            className={`lg:hidden p-2 transition-colors ${useDarkHeader ? 'text-white' : 'text-gray-600'}`}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
                             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

@@ -22,7 +22,7 @@ export default function BlogInsights({
             title: dict?.posts?.post1?.title || 'كيفية التعامل الآمن...',
             excerpt: dict?.posts?.post1?.excerpt || 'دليل شامل...',
             date: '15/01/2026',
-            image: 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=600',
+            image: 'https://images.unsplash.com/photo-1579165466741-7f35a4755657?q=80&w=800',
             category: dict?.posts?.post1?.cat || 'علوم الحياة',
             slug: 'safe-handling'
         },
@@ -31,7 +31,7 @@ export default function BlogInsights({
             title: dict?.posts?.post2?.title || 'أحدث التقنيات...',
             excerpt: dict?.posts?.post2?.excerpt || 'استكشف المعايير...',
             date: '10/01/2026',
-            image: 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=600',
+            image: 'https://images.unsplash.com/photo-1581093421113-5bc178877196?q=80&w=800',
             category: dict?.posts?.post2?.cat || 'تجهيزات مخبرية',
             slug: 'latest-tech'
         },
@@ -40,7 +40,7 @@ export default function BlogInsights({
             title: dict?.posts?.post3?.title || 'أهمية الكواشف...',
             excerpt: dict?.posts?.post3?.excerpt || 'لماذا تعتبر...',
             date: '05/01/2026',
-            image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=600',
+            image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=800',
             category: dict?.posts?.post3?.cat || 'كيماويات',
             slug: 'reagents-importance'
         }
@@ -52,7 +52,7 @@ export default function BlogInsights({
             title: post.title,
             excerpt: post.excerpt?.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...',
             date: new Date(post.date).toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-US'),
-            image: post.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=600',
+            image: post.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1579154273821-ad99159ad503?q=80&w=800',
             category: post.categories?.nodes?.[0]?.name || (isRtl ? 'علمي' : 'Scientific'),
             slug: post.slug
         }))

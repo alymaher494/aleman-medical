@@ -22,7 +22,7 @@ export default function FeaturedProducts({ dict, lang = 'ar', wpProducts = [] }:
             id: p.id,
             title: p.title,
             category: p.productFields?.category?.toLowerCase() || 'equipment',
-            image: p.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=600',
+            image: p.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093421113-5bc178877196?q=80&w=800',
             price: p.productFields?.price || dict?.price_request,
             slug: p.slug
         }))
@@ -31,7 +31,7 @@ export default function FeaturedProducts({ dict, lang = 'ar', wpProducts = [] }:
                 id: 1,
                 title: lang === 'ar' ? 'محلول كيميائي عالي النقاء' : 'High Purity Chemical Solution',
                 category: 'chemicals',
-                image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=600',
+                image: 'https://images.unsplash.com/photo-1581093421113-5bc178877196?q=80&w=800',
                 price: dict?.price_request,
                 slug: 'high-purity-chemical'
             },
@@ -39,7 +39,7 @@ export default function FeaturedProducts({ dict, lang = 'ar', wpProducts = [] }:
                 id: 2,
                 title: lang === 'ar' ? 'جهاز طرد مركزي متطور' : 'Advanced Centrifuge',
                 category: 'equipment',
-                image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=600',
+                image: 'https://images.unsplash.com/photo-1581093196223-9f687e61a088?q=80&w=800',
                 price: dict?.price_request,
                 slug: 'centrifuge-max'
             }

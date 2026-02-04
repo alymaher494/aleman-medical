@@ -97,15 +97,31 @@ export default function ProductClient({ product, dict, lang }: { product: any, d
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                            <Link
+                                href={`https://wa.me/201001234567?text=${encodeURIComponent(isRtl ? `مرحباً، أريد الاستفسار عن المنتج: ${product.title}` : `Hello, I want to inquire about the product: ${product.title}`)}`}
+                                target="_blank"
+                                className="flex-1 bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-500/20 flex items-center justify-center gap-2"
+                            >
+                                <MessageCircle size={20} />
+                                {isRtl ? 'استفسر عبر واتساب' : 'Inquire via WhatsApp'}
+                            </Link>
                             <button className="flex-1 bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
                                 <ShoppingCart size={20} />
                                 {isRtl ? 'اطلب عرض سعر' : 'Request Quote'}
                             </button>
-                            <button className="flex-1 bg-green-500 text-white py-4 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg shadow-green-500/20 flex items-center justify-center gap-2">
-                                <MessageCircle size={20} />
-                                {isRtl ? 'استفسر عبر واتساب' : 'Inquire via WhatsApp'}
-                            </button>
                         </div>
+
+                        {/* PDF Brochure Download */}
+                        {product.pdfBrochure && (
+                            <Link
+                                href={product.pdfBrochure}
+                                target="_blank"
+                                className="flex items-center justify-center gap-3 py-4 px-6 mb-6 rounded-xl border-2 border-dashed border-gray-200 text-gray-600 font-bold hover:border-primary hover:text-primary hover:bg-primary/5 transition-all"
+                            >
+                                <Download size={20} />
+                                {isRtl ? 'تحميل كتالوج المنتج (PDF)' : 'Download Product Brochure (PDF)'}
+                            </Link>
+                        )}
 
                         <div className="flex items-center justify-center gap-2 text-gray-400 text-sm font-bold cursor-pointer hover:text-primary transition-colors">
                             <Share2 size={16} />

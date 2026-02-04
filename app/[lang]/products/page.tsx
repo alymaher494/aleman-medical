@@ -19,7 +19,7 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
                 category: p.productFields?.category || (lang === 'ar' ? 'عام' : 'General'),
                 brand: p.productFields?.brand || 'Al Eman',
                 price: p.productFields?.price || dict.products_section.price_request,
-                image: p.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=600',
+                image: p.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093421113-5bc178877196?q=80&w=800',
                 slug: p.slug
             }))
         }
@@ -30,24 +30,9 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
     // Fallback if WP is empty
     if (products.length === 0) {
         products = [
-            {
-                id: 'f1',
-                title: lang === 'ar' ? 'ATCC® 25922™ Escherichia coli' : 'ATCC® 25922™ Escherichia coli',
-                category: lang === 'ar' ? 'السلالات المرجعية' : 'Reference Strains',
-                brand: 'ATCC',
-                price: dict.products_section.price_request,
-                image: 'https://images.unsplash.com/photo-1579165466741-7f35a4755657?q=80&w=600',
-                slug: 'atcc-25922'
-            },
-            {
-                id: 'f2',
-                title: lang === 'ar' ? 'ميزان تحليلي دقيق 0.0001g' : 'Analytical Balance 0.0001g',
-                category: lang === 'ar' ? 'الأجهزة والمعدات' : 'Equipment',
-                brand: 'Mettler Toledo',
-                price: dict.products_section.price_request,
-                image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=600',
-                slug: 'analytical-balance'
-            }
+            { id: 1, title: lang === 'ar' ? 'محلول كيميائي عالي النقاء' : 'High Purity Chemical Solution', category: lang === 'ar' ? 'كيماويات' : 'Chemicals', brand: 'Al Eman', price: dict.products_section.price_request, image: 'https://images.unsplash.com/photo-1581093421113-5bc178877196?q=80&w=800', slug: 'high-purity-chemical' },
+            { id: 2, title: lang === 'ar' ? 'جهاز طرد مركزي متطور' : 'Advanced Centrifuge', category: lang === 'ar' ? 'أجهزة' : 'Equipment', brand: 'LabMax', price: dict.products_section.price_request, image: 'https://images.unsplash.com/photo-1581093196223-9f687e61a088?q=80&w=800', slug: 'centrifuge-max' },
+            { id: 3, title: lang === 'ar' ? 'سلالات ميكروبيولوجية مرجعية' : 'Reference Strains', category: lang === 'ar' ? 'سلالات' : 'Strains', brand: 'MicroBio', price: dict.products_section.price_request, image: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=800', slug: 'ref-strains' }
         ]
     }
 

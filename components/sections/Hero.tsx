@@ -17,10 +17,10 @@ export default function Hero({ lang, dict }: { lang: string, dict: any }) {
 
     // High-quality reliable images with fallbacks
     const images = [
-        { src: 'https://images.unsplash.com/photo-1581093196867-27f311f49615?q=80&w=1920&auto=format&fit=crop', alt: 'Laboratory Equipment' },
+        { src: 'https://images.unsplash.com/photo-1579165466741-7f35a4755657?q=80&w=1920&auto=format&fit=crop', alt: 'Laboratory Equipment' },
         { src: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?q=80&w=1920&auto=format&fit=crop', alt: 'Science Research' },
-        { src: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=1920&auto=format&fit=crop', alt: 'Chemical Analysis' },
-        { src: 'https://images.unsplash.com/photo-1579165466741-7f35a4755657?q=80&w=1920&auto=format&fit=crop', alt: 'Pharmacy Production' },
+        { src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1920&auto=format&fit=crop', alt: 'Chemical Analysis' },
+        { src: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1920&auto=format&fit=crop', alt: 'Pharmacy Production' },
     ]
 
     return (

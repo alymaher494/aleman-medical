@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+    xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:wp="http://wordpress.org/export/1.2/">
+
+<channel>
+    <title>Al Eman Medical - Services (English)</title>
+    <link>https://aleman-medical.com</link>
+    <description>English Services Import</description>
+    <language>en</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <wp:base_site_url>https://aleman-medical.com</wp:base_site_url>
+    <wp:base_blog_url>https://aleman-medical.com</wp:base_blog_url>
+
+    <item>
+        <title>Microbiology Products</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>A complete range of laboratory microbiology products including culture media, reagents, and diagnostic kits.</p>]]></content:encoded>
+        <wp:post_name>microbiology-products</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Chemicals and Reagents</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>High-purity fine chemicals and reagents for analytical, research, and industrial applications.</p>]]></content:encoded>
+        <wp:post_name>chemicals-reagents</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Laboratory Media</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>Specialized and reliable laboratory culture media for microbiology applications.</p>]]></content:encoded>
+        <wp:post_name>laboratory-media</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Reference Strains</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>Certified reference strains for research, quality control, and analytical testing.</p>]]></content:encoded>
+        <wp:post_name>reference-strains</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Laboratory Equipment</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>Advanced laboratory equipment and instruments with global technology standards.</p>]]></content:encoded>
+        <wp:post_name>laboratory-equipment</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Glassware and Plasticware</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>High-quality laboratory glassware and plastic consumables for all laboratory applications.</p>]]></content:encoded>
+        <wp:post_name>glassware-plasticware</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Laboratory Consumables</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>All laboratory consumables to ensure accurate workflow.</p>]]></content:encoded>
+        <wp:post_name>laboratory-consumables</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+    <item>
+        <title>Complete Laboratory Setup</title>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <content:encoded><![CDATA[<p>We provide complete laboratory setup solutions from scratch.</p>]]></content:encoded>
+        <wp:post_name>complete-lab-setup</wp:post_name>
+        <wp:status>publish</wp:status>
+        <wp:post_type>service</wp:post_type>
+    </item>
+
+</channel>
+</rss>

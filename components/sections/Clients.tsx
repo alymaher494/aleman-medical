@@ -42,7 +42,7 @@ export default function Clients({
         : fallbackClients
 
     // Double/Triple for seamless loop
-    const marqueeItems = [...displayClients, ...displayClients, ...displayClients]
+    const marqueeItems = [...displayClients, ...displayClients, ...displayClients, ...displayClients]
 
     return (
         <section className="py-24 bg-white overflow-hidden border-y border-gray-50">
@@ -69,12 +69,13 @@ export default function Clients({
             <div className="relative w-full overflow-hidden py-10 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-40 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-40 after:bg-gradient-to-l after:from-white after:to-transparent">
                 <motion.div
                     animate={{
-                        x: isRtl ? ["0%", "-33.3333%"] : ["-33.3333%", "0%"],
+                        x: isRtl ? ["0%", "25%"] : ["0%", "-25%"],
                     }}
                     transition={{
-                        duration: 30, // Optimized speed
+                        duration: 35, // Balanced speed
                         ease: 'linear',
                         repeat: Infinity,
+                        repeatType: 'loop'
                     }}
                     className="flex w-max"
                 >

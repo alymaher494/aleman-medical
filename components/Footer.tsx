@@ -22,7 +22,7 @@ export default function Footer({ dict, lang = 'ar' }: { dict?: any, lang?: strin
                                     src="/logo.webp"
                                     alt="Al Eman Logo"
                                     fill
-                                    className="object-contain"
+                                    className="object-contain brightness-0 invert"
                                 />
                             </div>
                         </Link>

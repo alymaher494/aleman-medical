@@ -38,7 +38,7 @@ export default async function BlogPage({ params }: { params: Promise<{ lang: Loc
                 date: lang === 'ar' ? '24 فبراير 2026' : 'February 24, 2026',
                 author: lang === 'ar' ? 'د. أحمد فتحي' : 'Dr. Ahmed Fathi',
                 category: lang === 'ar' ? 'الجودة والاعتماد' : 'Quality & Accreditation',
-                image: 'https://images.unsplash.com/photo-1579165466741-7f35a4755657?q=80&w=1600',
+                image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=1600',
                 slug: 'iso-17025-overview'
             }
         ]
