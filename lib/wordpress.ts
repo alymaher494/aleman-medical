@@ -5,7 +5,7 @@ if (!WORDPRESS_API_URL) {
     console.warn('⚠️ NEXT_PUBLIC_WORDPRESS_API_URL is not defined. Using fallback static data.')
 }
 
-// GraphQL Queries as plain strings (no gql tag needed)
+// GraphQL Queries
 const GET_POSTS_QUERY = `
     query GetPosts($language: LanguageCodeFilterEnum) {
         posts(where: { language: $language }, first: 6) {
@@ -75,11 +75,59 @@ const GET_CLIENTS_QUERY = `
     }
 `
 
+const GET_SERVICE_BY_SLUG = `
+    query GetServiceBySlug($id: ID!, $idType: ServiceIdType!) {
+        service(id: $id, idType: $idType) {
+            id
+            title
+            content
+            slug
+            featuredImage {
+                node {
+                    sourceUrl
+                    altText
+                }
+            }
+            serviceFields {
+                description
+                icon
+            }
+        }
+    }
+`
+
+const GET_POST_BY_SLUG = `
+    query GetPostBySlug($id: ID!, $idType: PostIdType!) {
+        post(id: $id, idType: $idType) {
+            id
+            title
+            content
+            date
+            slug
+            excerpt
+            featuredImage {
+                node {
+                    sourceUrl
+                    altText
+                }
+            }
+            author {
+                node {
+                    name
+                }
+            }
+            categories {
+                nodes {
+                    name
+                }
+            }
+        }
+    }
+`
+
 // Sanitize HTML content from WordPress
 export function sanitizeHTML(html: string): string {
     if (!html) return ''
-
-    // Remove script tags and dangerous attributes
     return html
         .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
         .replace(/on\w+="[^"]*"/g, '')
@@ -89,37 +137,22 @@ export function sanitizeHTML(html: string): string {
 
 // Fetch data from WordPress using fetch API with ISR
 async function fetchWordPressData(query: string, variables = {}) {
-    if (!WORDPRESS_API_URL) {
-        console.warn('WordPress API URL not configured. Returning null.')
-        return null
-    }
+    if (!WORDPRESS_API_URL) return null
 
     try {
         const response = await fetch(WORDPRESS_API_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                query,
-                variables,
-            }),
-            // ISR: Revalidate every 60 seconds
-            next: { revalidate: 60 },
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query, variables }),
+            next: { revalidate: 3600 } // Cache for 1 hour
         })
 
-        if (!response.ok) {
-            console.error(`WordPress API Error: ${response.status} ${response.statusText}`)
-            return null
-        }
-
+        if (!response.ok) return null
         const json = await response.json()
-
         if (json.errors) {
             console.error('GraphQL Errors:', json.errors)
             return null
         }
-
         return json.data
     } catch (error) {
         console.error('Error fetching WordPress data:', error)
@@ -127,38 +160,53 @@ async function fetchWordPressData(query: string, variables = {}) {
     }
 }
 
-// Fetch posts from WordPress
+export async function fetchServiceBySlug(slug: string) {
+    try {
+        const data = await fetchWordPressData(GET_SERVICE_BY_SLUG, { id: slug, idType: 'SLUG' })
+        if (!data?.service) return null
+        return {
+            ...data.service,
+            content: sanitizeHTML(data.service.content || ''),
+            serviceFields: {
+                ...data.service.serviceFields,
+                description: sanitizeHTML(data.service.serviceFields?.description || ''),
+            }
+        }
+    } catch (error) {
+        return null
+    }
+}
+
+export async function fetchPostBySlug(slug: string) {
+    try {
+        const data = await fetchWordPressData(GET_POST_BY_SLUG, { id: slug, idType: 'SLUG' })
+        if (!data?.post) return null
+        return {
+            ...data.post,
+            content: sanitizeHTML(data.post.content || ''),
+        }
+    } catch (error) {
+        return null
+    }
+}
+
 export async function fetchPosts(language: 'AR' | 'EN' = 'AR') {
     try {
         const data = await fetchWordPressData(GET_POSTS_QUERY, { language })
-
-        if (!data?.posts?.nodes) {
-            console.log('No posts found from WordPress. Using fallback data.')
-            return []
-        }
-
-        // Sanitize excerpt
+        if (!data?.posts?.nodes) return []
         return data.posts.nodes.map((post: any) => ({
             ...post,
             excerpt: sanitizeHTML(post.excerpt || ''),
         }))
     } catch (error) {
-        console.error('Error fetching posts:', error)
         return []
     }
 }
 
-// Fetch services from WordPress
 export async function fetchServices(language: 'AR' | 'EN' = 'AR') {
     try {
         const data = await fetchWordPressData(GET_SERVICES_QUERY, { language })
-
-        if (!data?.allServices?.nodes) {
-            console.log('No services found from WordPress. Using fallback data.')
-            return []
-        }
-
-        // Sanitize content
+        if (!data?.allServices?.nodes) return []
         return data.allServices.nodes.map((service: any) => ({
             ...service,
             content: sanitizeHTML(service.content || ''),
@@ -168,64 +216,17 @@ export async function fetchServices(language: 'AR' | 'EN' = 'AR') {
             },
         }))
     } catch (error) {
-        console.error('Error fetching services:', error)
         return []
     }
 }
 
-// Fetch clients from WordPress
 export async function fetchClients(language: 'AR' | 'EN' = 'AR') {
     try {
         const data = await fetchWordPressData(GET_CLIENTS_QUERY, { language })
-
-        if (!data?.allClientsPartners?.nodes) {
-            console.log('No clients found from WordPress. Using fallback data.')
-            return []
-        }
-
-        console.log(`✅ Fetched ${data.allClientsPartners.nodes.length} clients from WordPress`)
-
+        if (!data?.allClientsPartners?.nodes) return []
         return data.allClientsPartners.nodes
     } catch (error) {
-        console.error('Error fetching clients:', error)
         return []
-    }
-}
-
-// Type definitions for better TypeScript support
-export interface WordPressPost {
-    id: string
-    title: string
-    excerpt: string
-    slug: string
-    date: string
-    featuredImage?: {
-        node: {
-            sourceUrl: string
-            altText?: string
-        }
-    }
-    categories?: {
-        nodes: Array<{
-            name: string
-        }>
-    }
-}
-
-export interface WordPressService {
-    id: string
-    title: string
-    content: string
-    slug: string
-    featuredImage?: {
-        node: {
-            sourceUrl: string
-            altText?: string
-        }
-    }
-    serviceFields?: {
-        description: string
-        icon: string
     }
 }
 
@@ -239,7 +240,7 @@ export interface WordPressClient {
         }
     }
     clientFields?: {
-        logo: string
-        companyName: string
+        logo?: string
+        companyName?: string
     }
 }

@@ -5,48 +5,59 @@ import Footer from '@/components/Footer'
 import FinalCTA from '@/components/sections/FinalCTA'
 import PageHeader from '@/components/PageHeader'
 import ServiceClient from '@/components/pages/ServiceClient'
+import { fetchServiceBySlug } from '@/lib/wordpress'
+import { notFound } from 'next/navigation'
 
 export default async function ServicePage({ params }: { params: Promise<{ lang: Locale, slug: string }> }) {
     const { lang, slug } = await params
     const dict = await getDictionary(lang)
-
-    // Mock data for the template - normally would fetch based on params.slug
     const isAr = lang === 'ar'
-    const service = {
-        title: isAr ? 'تجهيز المختبرات المتكامل' : 'Integrated Lab Setup',
-        description: isAr
-            ? 'نقدم حلولاً هندسية وتقنية متكاملة لتأسيس المختبرات الطبية والبحثية ومختبرات مراقبة الجودة، بدءاً من التصميم وحتى التشغيل والاعتماد.'
-            : 'We provide integrated engineering and technical solutions for establishing medical, research, and quality control laboratories, from design to operation and accreditation.',
-        image: 'https://images.unsplash.com/photo-1581093588401-fbb07e1136c3?q=80&w=1200',
+
+    // Fetch service from WordPress
+    const wpService = await fetchServiceBySlug(slug)
+
+    if (!wpService) {
+        // Fallback to static data if not in WP yet - or return notFound() if you prefer
+        // For development, let's keep the mock object but use WP data if it exists
+        if (slug !== 'lab-setup') {
+            // return notFound() // Uncomment after importing all services to WP
+        }
+    }
+
+    const service = wpService ? {
+        title: wpService.title,
+        description: wpService.serviceFields?.description || wpService.content,
+        image: wpService.featuredImage?.node?.sourceUrl || 'https://images.unsplash.com/photo-1581093588401-fbb07e1136c3?q=80&w=1200',
         features: isAr ? [
-            'تصميم هندسي مطابق لمعايير ISO 17025',
-            'تجهيز كامل للأثاث المخبري (Benches & Hoods)',
-            'توريد وتركيب أجهزة التحليل الرئيسية',
-            'أنظمة التهوية والسلامة المهنية',
-            'تدريب الطاقم الفني ودعم الاعتماد',
+            'تصميم هندسي عالي الجودة',
+            'توريد وتركيب أجهزة التحليل',
+            'تدريب الطاقم الفني',
+            'دعم فني متخصص',
         ] : [
-            'Engineering design compliant with ISO 17025',
-            'Full lab furniture setup (Benches & Hoods)',
-            'Supply and installation of main analytical instruments',
-            'Ventilation and occupational safety systems',
-            'Technical staff training and accreditation support',
+            'High-quality engineering design',
+            'Supply and installation of instruments',
+            'Technical staff training',
+            'Specialized technical support'
         ],
         process: isAr ? [
-            { title: 'الاستشارة والمعاينة', desc: 'دراسة الموقع وتحديد الاحتياجات الدقيقة للمختبر بناءً على التخصص.' },
-            { title: 'التصميم الهندسي', desc: 'رسم المخططات وتوزيع الأجهزة لضمان انسيابية العمل والسلامة.' },
-            { title: 'التوريد والتركيب', desc: 'توريد أحدث الأجهزة من وكلائنا العالميين وتركيبها بواسطة خبرائنا.' },
-            { title: 'التشغيل والتدريب', desc: 'اختبار كفاءة الأجهزة وتدريب الفريق على التشغيل والصيانة.' },
+            { title: 'الاستشارة', desc: 'تحديد الاحتياجات الدقيقة للمختبر.' },
+            { title: 'التصميم', desc: 'رسم المخططات وتوزيع الأجهزة.' },
+            { title: 'التوريد', desc: 'توريد أحدث الأجهزة من وكلائنا.' },
         ] : [
-            { title: 'Consultation & Inspection', desc: 'Site study and identification of exact lab needs based on specialization.' },
-            { title: 'Engineering Design', desc: 'Drafting plans and equipment distribution for workflow efficiency and safety.' },
-            { title: 'Supply & Installation', desc: 'Supplying latest equipment from our global partners and installing by our experts.' },
-            { title: 'Operation & Training', desc: 'Testing equipment efficiency and training the team on operation and maintenance.' },
+            { title: 'Consultation', desc: 'Identification of exact lab needs.' },
+            { title: 'Design', desc: 'Drafting plans and equipment distribution.' },
+            { title: 'Supply', desc: 'Supplying latest equipment from partners.' },
         ],
-        relatedProducts: [
-            { id: 101, name: 'Autoclave Steam Sterilizer', category: isAr ? 'أجهزة التعقيم' : 'Sterilization', image: 'https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?q=80&w=400' },
-            { id: 102, name: 'Laminar Flow Hood', category: isAr ? 'أثاث مخبري' : 'Lab Furniture', image: 'https://images.unsplash.com/photo-1617135002237-640989f6671a?q=80&w=400' },
-            { id: 103, name: 'Precision Balance', category: isAr ? 'أجهزة وزنية' : 'Precision Instruments', image: 'https://images.unsplash.com/photo-1584820927997-7cfaa3e414c9?q=80&w=400' },
-        ]
+        relatedProducts: []
+    } : {
+        title: isAr ? 'تجهيز المختبرات المتكامل' : 'Integrated Lab Setup',
+        description: isAr
+            ? 'نقدم حلولاً هندسية وتقنية متكاملة لتأسيس المختبرات الطبية والبحثية.'
+            : 'We provide integrated engineering and technical solutions for medical labs.',
+        image: 'https://images.unsplash.com/photo-1581093588401-fbb07e1136c3?q=80&w=1200',
+        features: isAr ? ['تصميم ISO', 'أثاث مخبري'] : ['ISO design', 'Lab furniture'],
+        process: isAr ? [{ title: 'معاينة', desc: 'دراسة الموقع' }] : [{ title: 'Site study', desc: 'Inspection' }],
+        relatedProducts: []
     }
 
     return (

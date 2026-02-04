@@ -37,7 +37,7 @@ export default function Clients({
         ? wpClients.map(client => ({
             name: client.clientFields?.companyName || client.title,
             logo: client.clientFields?.logo || client.title,
-            image: client.featuredImage?.node?.sourceUrl
+            image: client.featuredImage?.node?.sourceUrl || client.clientFields?.logo
         }))
         : fallbackClients
 
