@@ -12,10 +12,19 @@
 	<description>Medical and Scientific Services</description>
 	<pubDate>Wed, 04 Feb 2026 00:00:00 +0000</pubDate>
 	<language>ar</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>https://aleman-medical.com</wp:base_site_url>
 	<wp:base_blog_url>https://aleman-medical.com</wp:base_blog_url>
 
-	<!-- Post 1: Safe Handling -->
+	<wp:author>
+		<wp:author_id>1</wp:author_id>
+		<wp:author_login><![CDATA[admin]]></wp:author_login>
+		<wp:author_email><![CDATA[admin@aleman-medical.com]]></wp:author_email>
+		<wp:author_display_name><![CDATA[Admin]]></wp:author_display_name>
+		<wp:author_first_name><![CDATA[]]></wp:author_first_name>
+		<wp:author_last_name><![CDATA[]]></wp:author_last_name>
+	</wp:author>
+
 	<item>
 		<title>الدليل الشامل للتعامل الآمن مع السلالات المرجعية الميكروبية</title>
 		<link>https://aleman-medical.com/blog/safe-handling-reference-strains</link>
@@ -27,6 +36,7 @@
 		<excerpt:encoded><![CDATA[تعلم كيفية الحفاظ على سلامة مختبرك عند التعامل مع السلالات المرجعية المعتمدة.]]></excerpt:encoded>
 		<wp:post_id>201</wp:post_id>
 		<wp:post_date><![CDATA[2026-02-04 00:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-04 00:00:00]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[safe-handling-reference-strains]]></wp:post_name>
@@ -39,7 +49,6 @@
 		<category domain="category" nicename="scientific"><![CDATA[مقالات علمية]]></category>
 	</item>
 
-	<!-- Post 2: Lab Setup Standards -->
 	<item>
 		<title>أحدث المعايير الهندسية في تجهيز المختبرات الطبية الحديثة</title>
 		<link>https://aleman-medical.com/blog/modern-lab-setup-standards</link>
@@ -51,6 +60,7 @@
 		<excerpt:encoded><![CDATA[اكتشف كيف تساهم التصاميم الحديثة في رفع كفاءة المختبرات الطبية.]]></excerpt:encoded>
 		<wp:post_id>202</wp:post_id>
 		<wp:post_date><![CDATA[2026-02-04 00:00:00]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2026-02-04 00:00:00]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[modern-lab-setup-standards]]></wp:post_name>

@@ -144,18 +144,22 @@ async function fetchWordPressData(query: string, variables = {}) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ query, variables }),
-            next: { revalidate: 3600 } // Cache for 1 hour
+            next: { revalidate: 60 } // Reduced to 1 minute for testing
         })
 
-        if (!response.ok) return null
+        if (!response.ok) {
+            console.error(`❌ WP API Response Error: ${response.status}`)
+            return null
+        }
+
         const json = await response.json()
         if (json.errors) {
-            console.error('GraphQL Errors:', json.errors)
+            console.error('❌ GraphQL Errors:', JSON.stringify(json.errors, null, 2))
             return null
         }
         return json.data
     } catch (error) {
-        console.error('Error fetching WordPress data:', error)
+        console.error('❌ Error fetching WordPress data:', error)
         return null
     }
 }
@@ -163,7 +167,10 @@ async function fetchWordPressData(query: string, variables = {}) {
 export async function fetchServiceBySlug(slug: string) {
     try {
         const data = await fetchWordPressData(GET_SERVICE_BY_SLUG, { id: slug, idType: 'SLUG' })
-        if (!data?.service) return null
+        if (!data?.service) {
+            console.log(`ℹ️ Service with slug "${slug}" not found in WP.`)
+            return null
+        }
         return {
             ...data.service,
             content: sanitizeHTML(data.service.content || ''),
@@ -224,6 +231,7 @@ export async function fetchClients(language: 'AR' | 'EN' = 'AR') {
     try {
         const data = await fetchWordPressData(GET_CLIENTS_QUERY, { language })
         if (!data?.allClientsPartners?.nodes) return []
+        console.log(`✅ Fetched ${data.allClientsPartners.nodes.length} clients from WP`)
         return data.allClientsPartners.nodes
     } catch (error) {
         return []

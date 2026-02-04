@@ -1,38 +1,22 @@
 import type { NextConfig } from "next";
 
-// Force rebuild: 2026-02-04T04:05
+// Updated for compatibility and cross-domain images: 2026-02-04
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-      {
         protocol: 'https',
-        hostname: '**.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: '**',
       },
       {
         protocol: 'http',
-        hostname: 'aleman-medical.local',
-      },
-      {
-        protocol: 'https',
-        hostname: 'aleman-medical.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.aleman-medical.com',
-      },
+        hostname: '**',
+      }
     ],
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Optimization: allow larger images if needed, though default is usually fine
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // Security Headers
@@ -66,12 +50,9 @@ const nextConfig: NextConfig = {
             value: 'origin-when-cross-origin'
           },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          },
-          {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: *.unsplash.com images.unsplash.com aleman-medical.com *.aleman-medical.com aleman-medical.local localhost:*; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+            // Flexible CSP for images to avoid 404/blocked images
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' * blob: data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
           },
         ],
       },
