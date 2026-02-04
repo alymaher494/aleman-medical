@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// Force rebuild: 2026-02-03T19:05
+// Force rebuild: 2026-02-04T04:05
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'aleman-medical.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.aleman-medical.com',
       },
     ],
     formats: ['image/avif', 'image/webp'],
@@ -67,7 +71,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: *.unsplash.com images.unsplash.com aleman-medical.com aleman-medical.local localhost:*; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: *.unsplash.com images.unsplash.com aleman-medical.com *.aleman-medical.com aleman-medical.local localhost:*; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
           },
         ],
       },
