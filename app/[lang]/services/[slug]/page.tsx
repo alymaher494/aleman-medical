@@ -30,39 +30,61 @@ export default async function ServicePage({ params }: { params: Promise<{ lang: 
     // Fetch service from WordPress
     const wpService = await fetchServiceBySlug(slug)
 
+    // Match slug to dictionary key
+    const dictKey = slug.replace(/-/g, '_')
+    const dictService = dict?.services_section?.items?.[dictKey]
+
     // Build the service object
     const service = wpService ? {
         title: wpService.title,
         description: wpService.serviceFields?.description || wpService.content?.replace(/<[^>]*>?/gm, ''),
         image: wpService.featuredImage?.node?.sourceUrl || getFallbackImage(slug),
-        features: isAr ? [
-            'تصميم هندسي عالي الجودة يتوافق مع المعايير الدولية',
-            'توريد وتركيب أحدث أجهزة التحليل والقياس',
-            'تدريب شامل للطاقم الفني على التشغيل والصيانة',
-            'دعم فني متخصص ومستمر بعد التوريد',
+        features: wpService.serviceFields?.features || (isAr ? [
+            `توفير ${wpService.title} بأعلى معايير الجودة العالمية`,
+            'دعم فني متخصص ومستمر لضمان أفضل النتائج',
+            'حلول متكاملة تلبّي احتياجات المختبرات الحديثة',
+            'الالتزام بمعايير السلامة والجودة والاعتماد',
         ] : [
-            'High-quality engineering design compliant with global standards',
-            'Supply and installation of latest analytical instruments',
-            'Comprehensive technical staff training on operation',
-            'Continuous specialized technical support after delivery'
-        ],
+            `Providing ${wpService.title} with highest international standards`,
+            'Continuous specialized technical support for best results',
+            'Integrated solutions meeting modern laboratory needs',
+            'Commitment to safety, quality, and accreditation standards'
+        ]),
         process: isAr ? [
             { title: 'الاستشارة والمعاينة', desc: 'تحديد الاحتياجات الدقيقة بناءً على تخصص المختبر.' },
-            { title: 'التصميم الهندسي', desc: 'توزيع الأجهزة لضمان انسيابية العمل والسلامة.' },
-            { title: 'التوريد والتركيب', desc: 'توريد الأجهزة من وكلائنا العالميين وتركيبها بدقة.' },
+            { title: 'التوريد والتركيب', desc: 'توريد المنتجات والأجهزة من وكلائنا العالميين.' },
+            { title: 'التشغيل والدعم', desc: 'ضمان سير العمل وتقديم الدعم الفني اللازم.' },
         ] : [
-            { title: 'Consultation', desc: 'Identifying exact needs based on lab specialization.' },
-            { title: 'Engineering Design', desc: 'Optimizing equipment layout for workflow and safety.' },
-            { title: 'Supply & Installation', desc: 'Delivering equipment from global partners and expert setup.' },
+            { title: 'Consultation', desc: 'Identifying exact needs based on laboratory specialization.' },
+            { title: 'Supply & Delivery', desc: 'Delivering products and equipment from global partners.' },
+            { title: 'Operation & Support', desc: 'Ensuring workflow and providing necessary technical support.' },
         ],
         relatedProducts: []
     } : {
         // Full local fallback data if WP record doesn't exist yet
-        title: dict?.services_section?.items?.[slug.replace('-', '_')]?.title || (isAr ? 'خدمة مخبرية متخصصة' : 'Specialized Lab Service'),
-        description: dict?.services_section?.items?.[slug.replace('-', '_')]?.desc || (isAr ? 'نقدم حلولاً متكاملة لهذه الخدمة وفق أعلى المعايير.' : 'We provide integrated solutions for this service.'),
+        title: dictService?.title || (isAr ? 'خدمة مخبرية متخصصة' : 'Specialized Lab Service'),
+        description: dictService?.desc || (isAr ? 'نقدم حلولاً متكاملة لهذه الخدمة وفق أعلى المعايير.' : 'We provide integrated solutions for this service.'),
         image: getFallbackImage(slug),
-        features: isAr ? ['جودة عالية', 'دعم فني'] : ['High Quality', 'Technical Support'],
-        process: isAr ? [{ title: 'بدء العمل', desc: 'دراسة المتطلبات' }] : [{ title: 'Start', desc: 'Requirement study' }],
+        features: isAr ? [
+            'جودة عالية وموثوقية',
+            'دعم فني متخصص',
+            'حلول متكاملة',
+            'التزام بالمعايير الدولية'
+        ] : [
+            'High Quality & Reliability',
+            'Specialized Technical Support',
+            'Integrated Solutions',
+            'International Standards Compliance'
+        ],
+        process: isAr ? [
+            { title: 'دراسة المتطلبات', desc: 'تحديد التجهيزات والمواد اللازمة.' },
+            { title: 'التجهيز والتوريد', desc: 'توفير كافة المستلزمات بدقة.' },
+            { title: 'متابعة الجودة', desc: 'التأكد من مطابقة النتائج للمعايير.' },
+        ] : [
+            { title: 'Requirement Study', desc: 'Identifying necessary equipment and materials.' },
+            { title: 'Supply & Prep', desc: 'Providing all requirements accurately.' },
+            { title: 'Quality Follow-up', desc: 'Ensuring results match standards.' },
+        ],
         relatedProducts: []
     }
 

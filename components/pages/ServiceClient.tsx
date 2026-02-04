@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { CheckCircle2, FileText, Phone, ArrowLeft, Beaker, ShieldCheck, Truck, Cog } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ServiceClient({ service, dict, lang }: { service: any, dict: any, lang: string }) {
     const isRtl = lang === 'ar'
@@ -17,20 +18,18 @@ export default function ServiceClient({ service, dict, lang }: { service: any, d
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="rounded-[40px] overflow-hidden mb-12 shadow-xl border border-gray-100 bg-gray-50"
+                        className="rounded-[40px] overflow-hidden mb-12 shadow-xl border border-gray-100 bg-gray-50 relative h-[300px] md:h-[450px]"
                     >
                         {service.image ? (
-                            <img
+                            <Image
                                 src={service.image}
                                 alt={service.title}
-                                className="w-full h-[300px] md:h-[450px] object-cover"
-                                onError={(e) => {
-                                    // Final fallback if image URL fails to load
-                                    (e.target as HTMLImageElement).src = '/assets/services/lab-setup.png';
-                                }}
+                                fill
+                                className="object-cover"
+                                priority
                             />
                         ) : (
-                            <div className="w-full h-[400px] bg-gray-200 flex items-center justify-center text-gray-400">
+                            <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
                                 <Beaker size={64} />
                             </div>
                         )}

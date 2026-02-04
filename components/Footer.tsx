@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Facebook, Linkedin, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 
 export default function Footer({ dict, lang = 'ar' }: { dict?: any, lang?: string }) {
@@ -16,11 +17,14 @@ export default function Footer({ dict, lang = 'ar' }: { dict?: any, lang?: strin
                     {/* Column 1: Brand & About */}
                     <div className="lg:col-span-4 text-start">
                         <Link href={`/${lang}`} className="inline-block mb-8">
-                            <img
-                                src="/logo.webp"
-                                alt="Al Eman Logo"
-                                className="h-20 md:h-24 w-auto object-contain brightness-0 invert"
-                            />
+                            <div className="relative h-20 w-48">
+                                <Image
+                                    src="/logo.webp"
+                                    alt="Al Eman Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </Link>
                         <p className="text-gray-400 leading-relaxed mb-8 font-medium text-sm">
                             {dict?.description || 'الأيمان للخدمات الطبية والعلمية..'}
